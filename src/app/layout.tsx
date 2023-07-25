@@ -17,9 +17,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={inter.className}>
-        <Navbar />
-        {children}
+      <body className={`${inter.className} bg-blackdimmed`}>
+        <div className="block tooSmall:hidden text-heading-two uppercase text-whitedimmed font-bold">
+          Device too small
+        </div>
+        <div className="hidden tooSmall:block">
+          <Navbar />
+          {children}
+        </div>
       </body>
     </html>
   );

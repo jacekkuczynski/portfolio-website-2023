@@ -7,6 +7,17 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        tooSmall: "350px",
+        sm: "460px",
+        navbarSm: "510px",
+        md: "870px",
+        lg: "1024px",
+        heroSm: "820px",
+        hero: "1280px",
+        xl: "1280px",
+        "2xl": "1536px",
+      },
       height: { section: "56.25rem" },
       colors: {
         whitedimmed: "#F3F3F3",
@@ -27,17 +38,25 @@ module.exports = {
           "100%": { transform: "rotate(0deg)" },
         },
       },
+      transitionProperty: {
+        bg: "background, opacity",
+      },
       fontSize: {
+        tiny: "6px",
+        small: "10px",
         large: "26px",
-        ["display-one"]: "177px",
         ["heading-two"]: "42px",
+        ["heading-one"]: "68px",
+        ["display-two"]: "110px",
+        ["display-one"]: "177px",
       },
       padding: { standard: "36px" },
+      margin: { standard: "36px" },
       backgroundImage: {
         "hero-image": "url('/img/hero_bg.jpeg')",
       },
       letterSpacing: { display: "-0.885rem", ["heading-2"]: "0.09188rem" },
-      backdropBlur: { nav: "30px" },
+      backdropBlur: { nav: "5px" },
       border: { small: "1px" },
     },
   },
