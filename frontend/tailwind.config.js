@@ -21,20 +21,13 @@ module.exports = {
         roboto: ["Roboto", "sans-serif"],
         raleway: ["Raleway", "sans-serif"],
       },
-      keyframes: {
-        "accordion-down": {
-          from: { height: 0 },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: 0 },
-        },
+      colors: {
+        blackDimmed: "#111111",
+        whiteDimmed: "#FAFAFA",
+        grey1: "#333333",
+        cyanDark: "#29BC9B",
       },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-      },
+      borderWidth: { 1: "1px" },
     },
   },
   plugins: [require("tailwindcss-animate")],

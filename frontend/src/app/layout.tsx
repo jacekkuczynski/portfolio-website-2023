@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
 
@@ -13,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-raleway font-bold">{children}</body>
+      <body className="font-bold font-raleway ">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }

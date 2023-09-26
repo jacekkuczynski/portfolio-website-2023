@@ -1,5 +1,13 @@
+import Logo from "@/components/Logo/Logo";
+
 export default function Home() {
   return (
-    <div className="bg-black text-white h-screen w-screen">hello world</div>
+    <div className="flex flex-col items-center justify-center w-full gap-8 text-white bg-blackDimmed">
+      <div className="h-screen">hello world</div>
+      <div className="h-screen">hello world</div>
+      <div className="h-screen">hello world</div>
+      <div className="h-screen">hello world</div>
+      <div className="h-screen">hello world</div>
+    </div>
   );
 }
