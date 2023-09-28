@@ -25,6 +25,7 @@ module.exports = {
         blackDimmed: "#111111",
         whiteDimmed: "#FAFAFA",
         grey1: "#333333",
+        grey3: "#666666",
         cyanDark: "#29BC9B",
       },
       borderWidth: { 1: "1px" },

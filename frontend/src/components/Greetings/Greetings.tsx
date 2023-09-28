@@ -1,51 +1,55 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+const greetings = [
+  "hello",
+  "Dzień dobry",
+  "hola", // Spanish
+  "bonjour", // French
+  "привіт", // Ukrainian
+  "こんにちは", // Japanese (Kanji and Hiragana)
+  "你好", // Chinese (Simplified)
+  "salve", // Italian
+  "Goddag", // Danish
+  "Goedendag", // Dutch
+  "नमस्ते", // Hindi (Devanagari script)
+  "مرحبًا", // Arabic (Arabic script)
+  "Sawubona", // Zulu (Latin script)
+  "שָׁלוֹם", // Hebrew (Hebrew script)
+  "Selamat pagi", // Indonesian (Latin script)
+  "Γειά σας", // Greek (Greek script)
+  "Olá", // Portuguese (Latin script)
+  "Kamusta", // Filipino (Latin script)
+  "こんにちは", // Japanese (Kanji and Hiragana)
+  "Dzień dobry",
+];
 
 const Greetings = () => {
-  const [greetings, setGreetings] = useState([
-    { text: "Dzień dobry", visible: true },
-    { text: "hola", visible: true },
-    { text: "bonjour", visible: true },
-    { text: "привіт", visible: true },
-    { text: "こんにちは", visible: true },
-    { text: "你好", visible: true },
-    { text: "salve", visible: true },
-    { text: "Goddag", visible: true },
-    { text: "Goedendag", visible: true },
-    { text: "hello", visible: true },
-  ]);
+  const [visible, setVisible] = useState(0);
 
-  const hideGreeting = (text: string, index: number, greetingsLen: number) => {
-    if (index !== greetingsLen - 1)
-      setGreetings((prevGreetings) =>
-        prevGreetings.map((greeting) => ({
-          ...greeting,
-          visible: greeting.text === text ? false : greeting.visible,
-        }))
-      );
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (visible != greetings.length) setVisible(visible + 1);
+    }, 350 - visible * 12);
+    return () => {
+      clearInterval(interval);
+    };
+  });
 
   return (
-    <div className="h-8">
-      {greetings.map((greeting, index) => (
+    <div className="flex items-center justify-start leading-none text-left w-fit">
+      {visible == greetings.length && (
         <motion.div
-          key={greeting.text}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          exit={index === greetings.length ? { opacity: 100 } : { opacity: 0 }}
-          transition={{ duration: 0.2, delay: index * 0.2 }}
-          className={`${
-            greeting.visible ? "block" : "hidden"
-          } font-bold text-whiteDimmed font-raleway`}
-          onAnimationComplete={() =>
-            hideGreeting(greeting.text, index, greetings.length)
-          }
+          transition={{ delay: 0.125, duration: 0.4 }}
         >
-          {greeting.text}
+          hello
         </motion.div>
-      ))}
+      )}
+      {greetings[visible]}
     </div>
   );
 };
