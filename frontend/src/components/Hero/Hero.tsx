@@ -18,7 +18,7 @@ const Hero = () => {
           <Greetings />
           <div className="flex flex-row items-center gap-2 leading-none w-fit ">
             <span>I&apos;m</span>
-            <span className="text-whiteDimmed whitespace-nowrap ">
+            <span className="tracking-tighter text-whiteDimmed whitespace-nowrap">
               Jacek Kuczyński
             </span>
             <PlaySoundIcon />
