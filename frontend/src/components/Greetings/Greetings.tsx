@@ -32,7 +32,7 @@ const Greetings = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       if (visible != greetings.length) setVisible(visible + 1);
-    }, 350 - visible * 12);
+    }, 350 - visible * 15);
     return () => {
       clearInterval(interval);
     };
