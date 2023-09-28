@@ -1,7 +1,7 @@
-import { Mail } from "lucide-react"
- 
-import { Button } from "@/components/ui/button"import dynamic from "next/dynamic";
+import { CalendarPlus, Volume2 } from "lucide-react";
+import dynamic from "next/dynamic";
 import PlaySoundIcon from "../PlaySoundIcon/PlaySoundIcon";
+import { Mail } from "lucide-react";
 
 const Greetings = dynamic(() => import("../Greetings/Greetings"), {
   loading: () => <p>hello</p>,
@@ -12,7 +12,7 @@ const description =
 
 const Hero = () => {
   return (
-    <div className="flex flex-col w-auto gap-10 text-grey3">
+    <div className="flex flex-col justify-center col-start-2 gap-10 px-20 text-grey3 w-fit">
       <div className="flex flex-col gap-5">
         <div className="flex flex-col font-bold uppercase font-raleway text-title ">
           <Greetings />
@@ -29,11 +29,15 @@ const Hero = () => {
         </p>
       </div>
 
-      <div className="flex gap-4">
-        <Button>
-          <Mail className="w-4 h-4 mr-2" /> Login with Email
-        </Button>
-        <button></button>
+      <div className="flex gap-4 font-bold font-roboto text-button">
+        <button className="flex gap-5 transition-colors ease-in-out bg-cyan hover:bg-cyanLight px-buttonX py-buttonY text-blackDimmed">
+          <CalendarPlus strokeWidth={1.5} width={24} height={24} />
+          Book a call
+        </button>
+        <button className="flex gap-5 transition-colors ease-in-out bg-black hover:bg-grey3 px-buttonX py-buttonY text-whiteDimmed">
+          <Mail width={24} height={24} strokeWidth={1.5} />
+          Contact
+        </button>
       </div>
     </div>
   );

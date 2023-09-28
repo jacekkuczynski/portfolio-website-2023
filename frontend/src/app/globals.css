@@ -25,3 +25,8 @@
   src: url("/fonts/roboto700.ttf") format(".ttf");
   font-weight: 700;
 }
+
+::selection {
+  background: #79ffe1;
+  color: #111111;
+}

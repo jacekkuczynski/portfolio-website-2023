@@ -33,10 +33,8 @@ const Navbar = async () => {
     month: "long",
   });
 
-  // I love you JS
   const getWeatherIcon = () => {
     const code = weather.weathercode;
-    const day = weather.is_day;
     const night = !weather.is_day;
     const iconProps = {
       strokeWidth: 1.5,
