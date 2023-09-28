@@ -4,7 +4,7 @@ import Marquee from "react-fast-marquee";
 export default function Home() {
   return (
     <>
-      <section className="container w-full h-full min-h-screen mx-auto ">
+      <section className="grid justify-between w-full h-full min-h-screen grid-cols-12">
         <Hero />
         <div className="flex items-end col-start-1 col-end-13 -translate-y-12">
           <Marquee autoFill>
