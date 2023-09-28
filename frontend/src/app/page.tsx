@@ -9,8 +9,8 @@ export default function Home() {
           <Hero />
         </div>
         <div className="w-full col-start-1 col-end-13 ">
-          <Marquee autoFill className="w-full">
-            <p className="text-whiteDimmed font-raleway text-[4rem] font-bold leading-none">
+          <Marquee autoFill className="w-full ">
+            <p className="overflow-y-hidden font-bold leading-none text-whiteDimmed font-raleway text-title">
               frontend developer / web developer / fullstack web developer /
               frontend engineer / creative web developer/ html programmer{" "}
             </p>
@@ -24,10 +24,3 @@ export default function Home() {
     </>
   );
 }
-
-// * title */
-// font-family: Raleway;
-// font-size: 4rem;
-// font-style: normal;
-// font-weight: 700;
-// line-height: normal;

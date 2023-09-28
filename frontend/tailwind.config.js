@@ -29,6 +29,11 @@ module.exports = {
         cyanDark: "#29BC9B",
       },
       borderWidth: { 1: "1px" },
+      fontSize: {
+        small: "0.75rem",
+        leading: "1.6875rem",
+        title: "4rem",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
