@@ -1,26 +1,11 @@
 import { getWeatherInfo } from "@/fetchers/fetchers";
 import Logo from "../Logo/Logo";
 import ScrollProgress from "./ScrollProgress";
-import {
-  CheckCircle2,
-  CloudFog,
-  CloudLightning,
-  CloudMoon,
-  CloudMoonRain,
-  CloudRain,
-  CloudSnow,
-  CloudSun,
-  CloudSunRain,
-  Cloudy,
-  Menu,
-  MoonStar,
-  Sun,
-  Tornado,
-  Wind,
-} from "lucide-react";
+import { CheckCircle2, Menu } from "lucide-react";
+import WeatherIcon from "./WeatherIcon";
 
 const Navbar = async () => {
-  const weather = await getWeatherInfo();
+  const { weathercode, temperature, is_day, succes } = await getWeatherInfo();
   const date = new Date();
   const currentTime = date.toLocaleString("en-US", {
     hour: "numeric",
@@ -33,55 +18,17 @@ const Navbar = async () => {
     month: "long",
   });
 
-  const getWeatherIcon = () => {
-    const code = weather.weathercode;
-    const night = !weather.is_day;
-    const iconProps = {
-      strokeWidth: 1.5,
-      width: 24,
-      height: 24,
-    };
-
-    if (code >= 0 && code <= 4 && night) {
-      return <MoonStar {...iconProps} />;
-    } else if (code >= 5 && code <= 7 && night) {
-      return <CloudMoon {...iconProps} />;
-    } else if (code >= 80 && code <= 89 && night) {
-      return <CloudMoonRain {...iconProps} />;
-    } else if (code >= 0 && code <= 4) {
-      return <Sun {...iconProps} />;
-    } else if (code >= 5 && code <= 7) {
-      return <CloudSun {...iconProps} />;
-    } else if (code >= 8 && code <= 17) {
-      return <Cloudy {...iconProps} />;
-    } else if (code >= 18 && code <= 29) {
-      return <CloudRain {...iconProps} />;
-    } else if (code >= 30 && code <= 35) {
-      return <CloudLightning {...iconProps} />;
-    } else if (code >= 36 && code <= 50) {
-      return <CloudSnow {...iconProps} />;
-    } else if (code >= 51 && code <= 59) {
-      return <CloudFog {...iconProps} />;
-    } else if (code >= 60 && code <= 69) {
-      return <Wind {...iconProps} />;
-    } else if (code >= 70 && code <= 79) {
-      return <Tornado {...iconProps} />;
-    } else if (code >= 80 && code <= 89) {
-      return <CloudSunRain {...iconProps} />;
-    } else return null;
-  };
-
   return (
-    <nav className="sticky top-0 z-50 flex items-center justify-between h-20 px-20 border-b-1 border-grey1 bg-blackDimmed text-whiteDimmed">
+    <nav className="sticky top-0 z-50 flex items-center justify-between sm:h-20 h-[50px] px-3 sm:px-6 md:px-10 lg:px-20 xl:px-28 2xl:px-40 border-b-1 border-grey1 bg-blackDimmed text-whiteDimmed w-full">
       <Logo />
       <div className="flex items-center content-center gap-10 uppercase text-small">
-        <div className="flex gap-2.5 font-raleway items-center">
-          {getWeatherIcon()}
+        <div className="gap-1 md:gap-2.5 font-raleway items-center hidden lg:flex">
+          <WeatherIcon code={weathercode} isDay={is_day} />
           <span>
-            {weather.temperature}ºC / Poznań / {currentTime}
+            {temperature}ºC / Poznań / {currentTime}
           </span>
         </div>
-        <div className="flex gap-2.5 items-center">
+        <div className="gap-1 sm:gap-2.5 items-center hidden md:flex">
           <CheckCircle2
             strokeWidth={1.5}
             width={20}
@@ -92,8 +39,8 @@ const Navbar = async () => {
             Accepting Projects / {currentMonth}
           </span>
         </div>
-        <div className="cursor-pointer">
-          <Menu strokeWidth={1.5} width={24} height={24} />
+        <div className="w-4 cursor-pointer">
+          <Menu strokeWidth={1.5} />
         </div>
       </div>
       <ScrollProgress />
