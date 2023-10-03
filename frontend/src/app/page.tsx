@@ -27,8 +27,6 @@ export default function Home() {
           </Marquee>
         </div>
       </section>
-
-      <section className="grid justify-between w-full h-full min-h-screen grid-cols-12"></section>
       <div className="h-screen">hello world</div>
       <div className="h-screen">hello world</div>
       <div className="h-screen">hello world</div>
