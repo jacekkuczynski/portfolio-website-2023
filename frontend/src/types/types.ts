@@ -6,5 +6,6 @@ export interface WeatherAPIRes {
     weathercode: number;
     is_day: number;
     time: string;
+    success: boolean;
   };
 }

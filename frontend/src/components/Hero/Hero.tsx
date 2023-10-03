@@ -2,6 +2,8 @@ import { CalendarPlus, Volume2 } from "lucide-react";
 import dynamic from "next/dynamic";
 import PlaySoundIcon from "../PlaySoundIcon/PlaySoundIcon";
 import { Mail } from "lucide-react";
+import Button from "../Button/Button";
+import BookCallDialogButton from "./BookCallDialogButton";
 
 const Greetings = dynamic(() => import("../Greetings/Greetings"), {
   loading: () => <p>hello</p>,
@@ -12,32 +14,31 @@ const description =
 
 const Hero = () => {
   return (
-    <div className="flex flex-col justify-center col-start-2 gap-10 px-20 text-grey3 w-fit">
+    <div className="flex flex-col justify-center w-full col-start-2 gap-10 mt-16 mb-12 text-grey3">
       <div className="flex flex-col gap-5">
-        <div className="flex flex-col font-bold uppercase font-raleway text-title ">
+        <div className="flex flex-col font-bold uppercase font-raleway text-titleSmall sm:text-titleMedium lg:text-titleLarge">
           <Greetings />
-          <div className="flex flex-row items-center gap-2 leading-none w-fit ">
-            <span>I&apos;m</span>
-            <span className="tracking-tighter text-whiteDimmed whitespace-nowrap">
-              Jacek Kuczyński
-            </span>
+          <div className="flex flex-col items-start gap-0 leading-none sm:items-center sm:gap-2 w-fit sm:flex-row">
+            <div className="flex gap-2">
+              <span>I&apos;m</span>
+              <h1 className="tracking-tighter text-whiteDimmed whitespace-nowrap">
+                Jacek Kuczyński
+              </h1>
+            </div>
             <PlaySoundIcon />
           </div>
         </div>
-        <p className="w-[45rem] text-leading leading-[1.4] font-normal font-raleway">
+        <p className="w-full md:w-[45rem] text-leadingSmall sm:text-leadingMedium lg:text-leadingLarge leading-[1.4] font-normal font-raleway">
           {description}
         </p>
       </div>
 
-      <div className="flex gap-4 font-bold font-roboto text-button">
-        <button className="flex gap-5 transition-colors ease-in-out bg-cyan hover:bg-cyanLight px-buttonX py-buttonY text-blackDimmed">
-          <CalendarPlus strokeWidth={1.5} width={24} height={24} />
-          Book a call
-        </button>
-        <button className="flex gap-5 transition-colors ease-in-out bg-black hover:bg-grey3 px-buttonX py-buttonY text-whiteDimmed">
+      <div className="flex flex-col gap-4 cursor-pointer sm:flex-row font-roboto text-contentSmall sm:text-contentMedium lg:text-contentLarge">
+        <BookCallDialogButton />
+        <Button variant={"secondary"}>
           <Mail width={24} height={24} strokeWidth={1.5} />
           Contact
-        </button>
+        </Button>
       </div>
     </div>
   );

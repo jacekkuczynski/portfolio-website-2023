@@ -28,26 +28,28 @@ const BackgroundAnimDecor = () => {
   };
 
   return (
-    <div className="absolute top-0 right-0">
+    <div className="absolute top-0 right-0 -z-10">
       {windowWidth !== 0 && (
         <motion.svg
           initial="hidden"
           animate="visible"
-          width={window.innerWidth}
+          width={windowWidth * 0.75}
           height={window.innerHeight}
         >
-          {new Array(window.innerWidth / 16).fill(0).map((el, index) => (
-            <motion.line
-              key={crypto.randomUUID()}
-              x1={window.innerWidth - index * 16}
-              y1={0}
-              x2={window.innerWidth - index * 16}
-              y2={window.innerHeight}
-              stroke="#50E3C2"
-              variants={draw}
-              custom={index * 0.05}
-            />
-          ))}
+          {new Array(Math.floor(windowWidth / 16)).fill(0).map((el, index) => {
+            return (
+              <motion.line
+                key={crypto.randomUUID()}
+                x1={windowWidth - index * 16}
+                y1={0}
+                x2={windowWidth - index * 16}
+                y2={window.innerHeight}
+                stroke="#50E3C2"
+                variants={draw}
+                custom={index * 0.05}
+              />
+            );
+          })}
         </motion.svg>
       )}
     </div>

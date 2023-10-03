@@ -33,14 +33,20 @@ const PlaySoundIcon = () => {
   return (
     <>
       {!isPlaying ? (
-        <Volume1
-          onClick={playSound}
-          size={64}
-          strokeWidth={1.5}
-          className="hover:text-whiteDimmed"
-        />
+        <div className="w-12 sm:w-16">
+          <Volume1
+            onClick={playSound}
+            strokeWidth={1.5}
+            className="w-full h-full hover:text-whiteDimmed"
+          />
+        </div>
       ) : (
-        <Volume2 size={64} strokeWidth={1.5} className="text-whiteDimmed" />
+        <div className="w-12 sm:w-16">
+          <Volume2
+            strokeWidth={1.5}
+            className="w-full h-full text-whiteDimmed"
+          />
+        </div>
       )}
 
       <audio ref={ref}>

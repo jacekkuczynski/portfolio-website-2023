@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
+import BackgroundAnimDecor from "@/components/BackgroundAnimDecor/BackgroundAnimDecor";
 
 export const metadata: Metadata = {
   title: "Jacek Kuczyński",
@@ -14,8 +15,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className=" bg-blackDimmed">
+      <body className="bg-blackDimmed">
         <Navbar />
+        <BackgroundAnimDecor />
+        {/* <div className="w-full h-screen"></div>
+        <div className="w-full h-screen"></div>
+        <div className="w-full h-screen"></div>
+        <div className="hidden">{children}</div> */}
         {children}
       </body>
     </html>
