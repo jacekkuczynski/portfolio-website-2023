@@ -27,11 +27,11 @@ const BookCallDialogButton = () => {
       <Dialog.Portal>
         <Dialog.Overlay className="backdrop-blur-sm	z-40 data-[state=open]:animate-overlayShow fixed inset-0" />
 
-        <Dialog.Content className="data-[state=open]:animate-contentShow fixed top-[50%] z-50 left-[50%] max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-grey1 p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none text-whiteDimmed">
+        <Dialog.Content className="data-[state=open]:animate-contentShow fixed top-[50%] z-50 left-[50%] max-h-[85vh] w-fit translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-grey1 p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none text-whiteDimmed">
           <Dialog.Title className="font-bold font-roboto text-titleSmall">
             Book a call
           </Dialog.Title>
-          <Dialog.Description className="leading-normal text-leadingSmall">
+          <Dialog.Description className="leading-normal text-leadingSmall w-72">
             Please leave your phone number or email, and I will get back to you.
           </Dialog.Description>
           <div className="flex flex-col items-start justify-center my-5">
@@ -43,6 +43,7 @@ const BookCallDialogButton = () => {
                 phone/email
               </label>
               <input
+                autoFocus
                 onChange={handleChange}
                 className=" inline-flex h-5 p-4 w-full flex-1 items-center justify-center text-contentSmall leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px] text-blackDimmed"
                 id="contactInfo"
@@ -59,25 +60,20 @@ const BookCallDialogButton = () => {
           </div>
 
           <div className="flex justify-end">
-            <Dialog.Close asChild>
-              <div className="flex items-center gap-5">
-                <span className="text-contentSmall">
-                  I will contact you at {selected?.toDateString()}
-                </span>
+            <div className="flex items-center gap-5">
+              <span className="text-contentSmall">
+                I will contact you at {selected?.toDateString()}
+              </span>
+              <Dialog.Close asChild>
                 <button className="inline-flex items-center justify-center bg-cyan hover:bg-cyanLight px-buttonXSmall py-buttonYSmall font-roboto text-blackDimmed">
                   Confirm
                 </button>
-              </div>
-            </Dialog.Close>
-            <Dialog.Close asChild>
-              <button className="inline-flex items-center justify-center bg-cyan hover:bg-cyanLight px-buttonXSmall py-buttonYSmall font-roboto text-blackDimmed">
-                Confirm
-              </button>
-            </Dialog.Close>
+              </Dialog.Close>
+            </div>
           </div>
           <Dialog.Close asChild>
             <button
-              className="text-violet11 hover:bg-violet4 focus:shadow-violet7 absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full text-whiteDimmed"
+              className="absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full text-whiteDimmed"
               aria-label="Close"
             >
               <X strokeWidth={1.5} />
