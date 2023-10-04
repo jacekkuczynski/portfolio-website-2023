@@ -33,7 +33,7 @@ const PlaySoundIcon = () => {
   return (
     <>
       {!isPlaying ? (
-        <div className="w-12 sm:w-16">
+        <div className="w-12 cursor-pointer sm:w-16">
           <Volume1
             onClick={playSound}
             strokeWidth={1.5}

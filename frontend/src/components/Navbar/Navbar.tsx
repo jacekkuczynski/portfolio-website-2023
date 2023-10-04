@@ -32,8 +32,8 @@ const Navbar = async () => {
           <div className="gap-1 sm:gap-2.5 items-center hidden md:flex">
             <CheckCircle2
               strokeWidth={1.5}
-              width={20}
-              height={20}
+              width={24}
+              height={24}
               className="text-blackDimmed fill-cyanDark"
             />
             <span className="cursor-pointer font-roboto hover:underline underline-offset-2">

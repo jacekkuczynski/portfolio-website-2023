@@ -1,6 +1,5 @@
-import { CalendarPlus, Volume2 } from "lucide-react";
 import dynamic from "next/dynamic";
-import PlaySoundIcon from "../PlaySoundIcon/PlaySoundIcon";
+import PlaySoundIcon from "./PlaySoundIcon";
 import { Mail } from "lucide-react";
 import Button from "../Button/Button";
 import BookCallDialogButton from "./BookCallDialogButton";

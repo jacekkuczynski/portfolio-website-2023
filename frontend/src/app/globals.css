@@ -28,5 +28,19 @@
 
 ::selection {
   background: #79ffe1;
-  color: #111111;
+  color: black;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #333333;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #50e3c2;
+  border-radius: 4px;
 }

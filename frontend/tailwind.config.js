@@ -20,7 +20,6 @@ module.exports = {
     },
     extend: {
       height: { almostFull: "99vh" },
-
       container: {
         padding: {
           center: true,
