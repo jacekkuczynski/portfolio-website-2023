@@ -7,7 +7,7 @@ const DecorativeElement = () => {
   return (
     <Canvas
       camera={{ position: [0, 0, 15], fov: 17.5, near: 1, far: 40 }}
-      className="w-screen h-screen bg-blackDimmed"
+      className="w-screen h-screen border-y-2 bg-blackDimmed border-cyan"
     >
       <color attach="background" args={["#111111"]} />
       <Element3D />

@@ -1,12 +1,11 @@
 "use client";
 
-import { Center } from "@react-three/drei";
+import { Center, OrbitControls } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useRef } from "react";
-import { Mesh } from "three";
+import { DirectionalLight, Mesh } from "three";
 
 const Element3D = () => {
-  const { size } = useThree();
   const torusKnotRef = useRef<Mesh>(null);
   const torusKnotRef1 = useRef<Mesh>(null);
 
@@ -22,11 +21,10 @@ const Element3D = () => {
       torusKnotRef1.current.rotation.x -= 0.003;
     }
   });
-
   // radius; tube; tubularSegments; radialSegments; p; q
   // default: 1; 0.4; 64; 8; 2; 3
   const torusKnotSize: [number, number, number, number, number, number] = [
-    1.1, 0.4, 128, 8, 2, 3,
+    1.4, 0.2, 128, 8, 2, 3,
   ];
   const meshProps = { color: "#79ffe1", metalness: 1, roughness: 0.01 };
 
@@ -36,14 +34,22 @@ const Element3D = () => {
       <directionalLight intensity={10} position={[2, 2, 3]} color="white" />
       <directionalLight intensity={10} position={[-2, -2, 3]} color="white" />
       <directionalLight intensity={10} position={[-2, 2, 3]} color="white" />
-      <Center left>
+
+      <directionalLight
+        intensity={5}
+        rotation={[0, 180, 0]}
+        position={[0, -4, -20]}
+        color="#ff0080"
+      />
+
+      <Center left front>
         <mesh ref={torusKnotRef} scale={1}>
           <torusKnotGeometry args={torusKnotSize} />
           <meshStandardMaterial {...meshProps} />
         </mesh>
       </Center>
-      <Center right>
-        <mesh ref={torusKnotRef1} scale={1}>
+      <Center right back>
+        <mesh ref={torusKnotRef1} scale={1} rotation={[180, 180, 180]}>
           <torusKnotGeometry args={torusKnotSize} />
           <meshStandardMaterial {...meshProps} />
         </mesh>
