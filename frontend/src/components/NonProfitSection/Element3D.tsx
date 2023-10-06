@@ -6,13 +6,20 @@ import { useRef } from "react";
 import { Mesh } from "three";
 
 const Element3D = () => {
-  const { width } = useThree();
+  const { size } = useThree();
   const torusKnotRef = useRef<Mesh>(null);
+  const torusKnotRef1 = useRef<Mesh>(null);
+
   useFrame(() => {
     if (torusKnotRef.current) {
       torusKnotRef.current.rotation.z += 0.001;
       torusKnotRef.current.rotation.y += 0.002;
       torusKnotRef.current.rotation.x += 0.003;
+    }
+    if (torusKnotRef1.current) {
+      torusKnotRef1.current.rotation.z += 0.001;
+      torusKnotRef1.current.rotation.y += 0.002;
+      torusKnotRef1.current.rotation.x += 0.003;
     }
   });
 
@@ -31,7 +38,11 @@ const Element3D = () => {
       <directionalLight intensity={10} position={[-2, 2, 3]} color="white" />
 
       <Center position={[0, 0, 0]}>
-        <mesh ref={torusKnotRef} position={[0, 0, -6]} scale={1}>
+        <mesh ref={torusKnotRef} position={[-2, 0, -6]} scale={1}>
+          <torusKnotGeometry args={torusKnotSize} />
+          <meshStandardMaterial {...meshProps} />
+        </mesh>
+        <mesh ref={torusKnotRef1} position={[2, 0, -6]} scale={1}>
           <torusKnotGeometry args={torusKnotSize} />
           <meshStandardMaterial {...meshProps} />
         </mesh>
