@@ -17,16 +17,16 @@ const Element3D = () => {
       torusKnotRef.current.rotation.x += 0.003;
     }
     if (torusKnotRef1.current) {
-      torusKnotRef1.current.rotation.z += 0.001;
-      torusKnotRef1.current.rotation.y += 0.002;
-      torusKnotRef1.current.rotation.x += 0.003;
+      torusKnotRef1.current.rotation.z -= 0.001;
+      torusKnotRef1.current.rotation.y -= 0.002;
+      torusKnotRef1.current.rotation.x -= 0.003;
     }
   });
 
   // radius; tube; tubularSegments; radialSegments; p; q
   // default: 1; 0.4; 64; 8; 2; 3
   const torusKnotSize: [number, number, number, number, number, number] = [
-    1.2, 0.4, 128, 8, 2, 3,
+    1.1, 0.4, 128, 8, 2, 3,
   ];
   const meshProps = { color: "#79ffe1", metalness: 1, roughness: 0.01 };
 
@@ -36,13 +36,14 @@ const Element3D = () => {
       <directionalLight intensity={10} position={[2, 2, 3]} color="white" />
       <directionalLight intensity={10} position={[-2, -2, 3]} color="white" />
       <directionalLight intensity={10} position={[-2, 2, 3]} color="white" />
-
-      <Center position={[0, 0, 0]}>
-        <mesh ref={torusKnotRef} position={[-2, 0, -6]} scale={1}>
+      <Center left>
+        <mesh ref={torusKnotRef} scale={1}>
           <torusKnotGeometry args={torusKnotSize} />
           <meshStandardMaterial {...meshProps} />
         </mesh>
-        <mesh ref={torusKnotRef1} position={[2, 0, -6]} scale={1}>
+      </Center>
+      <Center right>
+        <mesh ref={torusKnotRef1} scale={1}>
           <torusKnotGeometry args={torusKnotSize} />
           <meshStandardMaterial {...meshProps} />
         </mesh>
