@@ -2,16 +2,15 @@
 
 import { Canvas } from "@react-three/fiber";
 import Element3D from "./Element3D";
-import { useEffect, useRef, useState } from "react";
-import { useInView } from "framer-motion";
 
 const DecorativeElement = () => {
-  const canvasRef = useRef(null);
-  const isInView = useInView(canvasRef);
-
   return (
-    <Canvas ref={canvasRef} className="w-screen h-screen border-2 border-white">
-      <Element3D isInView={isInView} />
+    <Canvas
+      camera={{ position: [0, 0, 15], fov: 17.5, near: 1, far: 40 }}
+      className="w-screen h-screen bg-blackDimmed"
+    >
+      <color attach="background" args={["#111111"]} />
+      <Element3D />
     </Canvas>
   );
 };
