@@ -1,9 +1,9 @@
 "use client";
 
-import { Center, OrbitControls } from "@react-three/drei";
-import { useFrame, useThree } from "@react-three/fiber";
+import { Center } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
-import { DirectionalLight, Mesh } from "three";
+import { Mesh } from "three";
 
 const Element3D = () => {
   const torusKnotRef = useRef<Mesh>(null);
@@ -42,13 +42,13 @@ const Element3D = () => {
         color="#ff0080"
       />
 
-      <Center left front>
+      <Center left>
         <mesh ref={torusKnotRef} scale={1}>
           <torusKnotGeometry args={torusKnotSize} />
           <meshStandardMaterial {...meshProps} />
         </mesh>
       </Center>
-      <Center right back>
+      <Center right>
         <mesh ref={torusKnotRef1} scale={1} rotation={[180, 180, 180]}>
           <torusKnotGeometry args={torusKnotSize} />
           <meshStandardMaterial {...meshProps} />
