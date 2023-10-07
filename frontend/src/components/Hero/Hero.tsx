@@ -28,9 +28,9 @@ const Hero = () => {
             <PlaySoundIcon />
           </div>
         </div>
-        <p className="w-full md:w-[45rem] text-leadingSmall sm:text-leadingMedium lg:text-leadingLarge leading-[1.4] font-normal font-raleway">
+        <h2 className="w-full md:w-[45rem] text-leadingSmall sm:text-leadingMedium lg:text-leadingLarge leading-[1.4] font-normal font-raleway">
           {description}
-        </p>
+        </h2>
       </div>
 
       <div className="flex flex-col gap-4 cursor-pointer sm:flex-row font-roboto text-contentSmall sm:text-contentMedium lg:text-contentLarge">
