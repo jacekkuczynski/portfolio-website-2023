@@ -53,7 +53,7 @@ module.exports = {
         leadingLarge: "1.6875rem",
         leadingMedium: "1.26563rem",
         leadingSmall: "0.84375rem",
-        contentLarge: "1.25rem",
+        contentLarge: "1.5rem",
         contentMedium: "1.25rem",
         contentSmall: "0.75rem",
       },

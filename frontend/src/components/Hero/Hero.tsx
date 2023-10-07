@@ -2,11 +2,12 @@ import dynamic from "next/dynamic";
 import PlaySoundIcon from "./PlaySoundIcon";
 import { Mail } from "lucide-react";
 import Button from "../Button/Button";
-import BookCallDialogButton from "./BookCallDialogButton";
 
 const Greetings = dynamic(() => import("../Greetings/Greetings"), {
   loading: () => <p>hello</p>,
 });
+
+const BookCallDialogButton = dynamic(() => import("./BookCallDialogButton"));
 
 const description =
   "I'm a web developer from Poznań, Poland, with a strong focus on modern frontend technologies. I specialize in creating websites and apps that help companies and individuals establish a strong web presence.";
