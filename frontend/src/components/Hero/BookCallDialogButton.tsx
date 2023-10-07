@@ -4,10 +4,15 @@ import { CalendarPlus, X } from "lucide-react";
 import * as Dialog from "@radix-ui/react-dialog";
 import Button from "../Button/Button";
 import { format } from "date-fns";
+import { Roboto_Mono } from "next/font/google";
 import "react-day-picker/dist/style.css";
-
 import { ChangeEvent, useState } from "react";
 import { DayPicker } from "react-day-picker";
+
+const robotoMono = Roboto_Mono({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const BookCallDialogButton = () => {
   const [selected, setSelected] = useState<Date | undefined>(new Date());
@@ -26,14 +31,14 @@ const BookCallDialogButton = () => {
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="backdrop-blur-sm	z-40 data-[state=open]:animate-overlayShow fixed inset-0" />
-        <Dialog.Content className="data-[state=open]:animate-contentShow fixed top-[50%] z-50 left-[50%] max-h-[85vh] w-fit translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-grey1 p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none text-whiteDimmed">
+        <Dialog.Content className="data-[state=open]:animate-contentShow fixed top-[50%] z-50 left-[50%]  w-fit translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-grey1 p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none text-whiteDimmed">
           <Dialog.Title className="font-bold font-roboto text-titleSmall">
             Book a call
           </Dialog.Title>
           <Dialog.Description className="leading-normal text-leadingSmall w-72">
             Please leave your phone number or email, and I will get back to you.
           </Dialog.Description>
-          <div className="flex flex-col items-start justify-center my-5">
+          <div className="flex flex-col items-start justify-center gap-2 my-5">
             <fieldset className="flex items-center justify-center gap-5 w-72">
               <label
                 className="w-20 text-right text-contentSmall"
@@ -42,10 +47,22 @@ const BookCallDialogButton = () => {
                 phone/email
               </label>
               <input
-                autoFocus
                 onChange={handleChange}
                 className=" inline-flex h-5 p-4 w-full flex-1 items-center justify-center text-contentSmall leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px] text-blackDimmed"
                 id="contactInfo"
+              />
+            </fieldset>
+            <fieldset className="flex items-center justify-center gap-5 w-72">
+              <label
+                className="w-20 text-right text-contentSmall"
+                htmlFor="message"
+              >
+                message
+              </label>
+              <textarea
+                // onChange={handleChange}
+                className=" inline-flex h-10 p-4 w-full flex-1 items-center justify-center text-contentSmall leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px] text-blackDimmed"
+                id="message"
               />
             </fieldset>
             <div className="w-72 h-72">
@@ -60,7 +77,9 @@ const BookCallDialogButton = () => {
 
           <div className="flex justify-end">
             <div className="flex items-center gap-5">
-              <span className="text-contentSmall">
+              <span
+                className={`text-contentSmall w-36 ${robotoMono.className}`}
+              >
                 I will contact you at {selected?.toDateString()}
               </span>
               <Dialog.Close asChild>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Center } from "@react-three/drei";
+import { Center, OrbitControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { Mesh } from "three";
@@ -30,6 +30,7 @@ const Element3D = () => {
 
   return (
     <>
+      <OrbitControls enableZoom={false} />
       <directionalLight intensity={10} position={[2, -2, 3]} color="white" />
       <directionalLight intensity={10} position={[2, 2, 3]} color="white" />
       <directionalLight intensity={10} position={[-2, -2, 3]} color="white" />
