@@ -1,4 +1,3 @@
-import dynamic from "next/dynamic";
 import AppearingAnim from "../AppearingAnim/AppearingAnim";
 import DecorativeElement from "./DecorativeElement";
 
