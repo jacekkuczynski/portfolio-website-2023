@@ -1,11 +1,11 @@
 import AppearingAnim from "../AppearingAnim/AppearingAnim";
-import DecorativeElement from "./DecorativeElement";
+import Dynamic3DLoader from "./Dynamic3DLoader";
 
 const NonProfitSection = () => {
   return (
     <section className="relative w-full border-y-2 h-almostFull border-cyan">
       <div className="absolute top-0 w-full h-full ">
-        <DecorativeElement />
+        <Dynamic3DLoader />
       </div>
       <div className="container absolute -translate-x-1/2 -translate-y-1/2 w-fit top-1/2 left-1/2">
         <AppearingAnim>
