@@ -1,5 +1,5 @@
-import CategoryCard from "@/components/CategoryCard/CategoryCard";
 import HeroSection from "@/components/HeroSection/HeroSection";
+import LearnMoreSection from "@/components/LearnMoreSection/LearnMoreSection";
 import NonProfitSection from "@/components/NonProfitSection/NonProfitSection";
 
 export default function Home() {
@@ -7,12 +7,11 @@ export default function Home() {
     <>
       <HeroSection />
       <NonProfitSection />
-      <div className="container h-screen">
-        <CategoryCard />
-      </div>
-      <div className="h-screen "></div>
-      <div className="h-screen "></div>
-      <div className="h-screen "></div>
+      <LearnMoreSection />
+
+      <div className="h-screen"></div>
+      <div className="h-screen"></div>
+      <div className="h-screen"></div>
     </>
   );
 }

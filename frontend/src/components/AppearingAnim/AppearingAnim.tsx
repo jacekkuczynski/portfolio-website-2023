@@ -28,6 +28,7 @@ const AppearingAnim = ({
       }}
       transition={{ delay: delay || 0.15 }}
       initial={false}
+      className="flex items-center justify-center w-full md:w-fit"
     >
       {children}
     </motion.div>
