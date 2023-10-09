@@ -19,6 +19,7 @@ module.exports = {
       lg: "1440px",
     },
     extend: {
+      borderRadius: { card: "2rem" },
       height: { almostFull: "99vh" },
       container: {
         padding: {
@@ -38,6 +39,7 @@ module.exports = {
         blackDimmed: "#111111",
         whiteDimmed: "#FAFAFA",
         grey1: "#333333",
+        grey2: "#444444",
         grey3: "#666666",
         grey4: "#888888",
         cyanLight: "#79ffe1",

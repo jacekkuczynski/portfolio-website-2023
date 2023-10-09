@@ -1,19 +1,17 @@
 import HeroSection from "@/components/HeroSection/HeroSection";
-import dynamic from "next/dynamic";
-
-const NonProfitSection = dynamic(
-  () => import("@/components/NonProfitSection/NonProfitSection")
-);
+import LearnMoreSection from "@/components/LearnMoreSection/LearnMoreSection";
+import NonProfitSection from "@/components/NonProfitSection/NonProfitSection";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
       <NonProfitSection />
-      <div className="h-screen text-cyan">hello world</div>
-      <div className="h-screen text-cyan">hello world</div>
-      <div className="h-screen text-cyan">hello world</div>
-      <div className="h-screen text-cyan">hello world</div>
+      <LearnMoreSection />
+
+      <div className="h-screen"></div>
+      <div className="h-screen"></div>
+      <div className="h-screen"></div>
     </>
   );
 }
