@@ -8,6 +8,7 @@ import Categories from "./collections/Categories";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { slateEditor } from "@payloadcms/richtext-slate";
+import Variables from "./globals/Variables";
 
 export default buildConfig({
   admin: {
@@ -19,6 +20,7 @@ export default buildConfig({
     url: process.env.DATABASE_URI,
   }),
   collections: [Categories, Media, Users],
+  globals: [Variables],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },
