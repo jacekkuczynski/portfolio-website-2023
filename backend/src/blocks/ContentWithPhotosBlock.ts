@@ -11,7 +11,7 @@ const ContentWithPhotosBlock: Block = {
         { type: "text", name: "leading" },
       ],
     },
-    { type: "richText", name: "content" },
+    { type: "richText", name: "richTextContent" },
     {
       type: "array",
       name: "photos",

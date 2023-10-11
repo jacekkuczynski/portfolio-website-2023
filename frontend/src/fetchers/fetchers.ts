@@ -1,4 +1,4 @@
-import { WeatherAPIRes } from "@/types/types";
+import { CategoriesT, CategoryT, WeatherAPIRes } from "@/types/types";
 
 export const getWeatherInfo = async () => {
   // Poznań longitude and latitude
@@ -18,4 +18,20 @@ export const getWeatherInfo = async () => {
     };
   const data: WeatherAPIRes = await res.json();
   return { ...data.current_weather, success: true };
+};
+
+const serverUrl = process.env.SERVER_URL;
+
+export const getAllCategoriesData = async () => {
+  const url = `${serverUrl}/categories/`;
+  const res = await fetch(url);
+  const data: CategoriesT = await res.json();
+  return data.docs;
+};
+
+export const getCategoryData = async (slug: string) => {
+  const url = `${serverUrl}/categories/?slug=${slug}`;
+  const res = await fetch(url);
+  const data: CategoriesT = await res.json();
+  return data.docs[0];
 };

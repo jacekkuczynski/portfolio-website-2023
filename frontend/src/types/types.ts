@@ -25,6 +25,7 @@ export type CategoriesT = {
 export type CategoryT = {
   id: string;
   name: string;
+  slug: string;
   description: string;
   ImageT: ImageT;
   content: (TitleBlockT | BookBlockT | ContentWithPhotosBlockT | IconsBlock)[];

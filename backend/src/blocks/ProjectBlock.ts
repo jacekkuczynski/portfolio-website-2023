@@ -5,14 +5,17 @@ const ProjectBlock: Block = {
   //   imageURL: "",
   interfaceName: "Project",
   fields: [
+    { type: "checkbox", name: "publish", defaultValue: true },
+
     {
       type: "row",
       fields: [
-        { type: "upload", name: "image", relationTo: "media" },
         { type: "text", name: "title" },
         { type: "text", name: "shortDescription" },
       ],
     },
+    { type: "upload", name: "image", relationTo: "media" },
+
     {
       type: "array",
       name: "techs",
@@ -23,7 +26,7 @@ const ProjectBlock: Block = {
       name: "features",
       fields: [{ type: "text", name: "feature" }],
     },
-    { type: "text", name: "longDescription" },
+    { type: "richText", name: "longDescription" },
     {
       type: "row",
       fields: [

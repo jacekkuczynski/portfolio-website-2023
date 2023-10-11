@@ -3,6 +3,7 @@ import Logo from "../Logo/Logo";
 import ScrollProgress from "./ScrollProgress";
 import { CheckCircle2, Menu } from "lucide-react";
 import WeatherIcon from "./WeatherIcon";
+import HamburgerMenu from "./HamburgerMenu";
 
 const Navbar = async () => {
   const { weathercode, temperature, is_day, success } = await getWeatherInfo();
@@ -41,7 +42,7 @@ const Navbar = async () => {
             </span>
           </div>
           <div className="w-4 cursor-pointer">
-            <Menu strokeWidth={1.5} />
+            <HamburgerMenu />
           </div>
         </div>
       </div>
