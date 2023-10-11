@@ -1,6 +1,8 @@
+import { BookT } from "@/types/types";
 import Image from "next/image";
 
-const BookBlock = ({ author, title }: { author: string; title: string }) => {
+const Book = (props: BookT) => {
+  const { author, title } = props;
   return (
     <div className="flex w-full transition-colors ease-in-out rounded-lg border-1 lg:w-10/12 border-blackDimmed hover:border-grey1 bg-blackDimmed text-whiteDimmed">
       <div className="w-[150px] h-auto md:w-auto md:h-[300px]">
@@ -18,4 +20,4 @@ const BookBlock = ({ author, title }: { author: string; title: string }) => {
   );
 };
 
-export default BookBlock;
+export default Book;

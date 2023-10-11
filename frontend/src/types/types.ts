@@ -28,20 +28,29 @@ export type CategoryT = {
   slug: string;
   description: string;
   ImageT: ImageT;
-  content: (TitleBlockT | BookBlockT | ContentWithPhotosBlockT | IconsBlock)[];
+  content: ContentT;
 };
+
+export type ContentT = BlockT[];
+
+export type BlockT =
+  | TitleBlockT
+  | BookBlockT
+  | ContentWithPhotosBlockT
+  | IconsBlockT
+  | ProjectBlockT;
 
 export type TitleBlockT = {
   title: string;
   description: string;
   id: string;
-  blockType: string;
+  blockType: BlockTypeT;
 };
 
 export type BookBlockT = {
   books: BookT[];
   id: string;
-  blockType: string;
+  blockType: BlockTypeT;
 };
 
 export type ProjectBlockT = {
@@ -55,7 +64,7 @@ export type ProjectBlockT = {
   repoLink: string;
   websiteLink: string;
   id: string;
-  blockType: string;
+  blockType: BlockTypeT;
 };
 
 export type ContentWithPhotosBlockT = {
@@ -64,18 +73,18 @@ export type ContentWithPhotosBlockT = {
   richTextContent: RichTextContentT;
   photos: ImageT[];
   id: string;
-  blockType: string;
+  blockType: BlockTypeT;
+};
+
+export type IconsBlockT = {
+  sectionTitle: string;
+  icons: { iconName: string; iconImage: ImageT; id: string }[];
+  id: string;
+  blockType: BlockTypeT;
 };
 
 // TODO extend RichTextContentT
 export type RichTextContentT = { children: []; type: string }[];
-
-export type IconsBlock = {
-  sectionTitle: string;
-  icons: { iconName: string; iconImage: ImageT; id: string }[];
-  id: string;
-  blockType: string;
-};
 
 export type BookT = {
   cover: ImageT;
@@ -83,3 +92,10 @@ export type BookT = {
   author: string;
   id: string;
 };
+
+export type BlockTypeT =
+  | "titleBlock"
+  | "booksBlock"
+  | "projectBlock"
+  | "iconsBlock"
+  | "contentWithPhotosBlock";

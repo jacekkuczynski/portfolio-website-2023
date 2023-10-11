@@ -1,10 +1,7 @@
-const TitleBlock = ({
-  title,
-  description,
-}: {
-  title: string;
-  description: string;
-}) => {
+import { TitleBlockT } from "@/types/types";
+
+const TitleBlock = (props: TitleBlockT) => {
+  const { title, description } = props;
   return (
     <div className="flex flex-col items-center justify-center">
       <h1 className="font-bold uppercase font-raleway text-titleSmall md:text-titleMedium lg:text-titleLarge text-whiteDimmed">

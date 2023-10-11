@@ -1,5 +1,6 @@
 export const dynamicParams = false;
 
+import CategoryContent from "@/components/CategoryContent/CategoryContent";
 import { getAllCategoriesData, getCategoryData } from "@/fetchers/fetchers";
 
 export async function generateStaticParams() {
@@ -11,13 +12,11 @@ export async function generateStaticParams() {
 
 export default async function Home({ params }: { params: { slug: string } }) {
   const { slug } = params;
-  const { description, name } = await getCategoryData(slug);
+  const { description, name, content } = await getCategoryData(slug);
   return (
     <div className="flex flex-col items-center justify-center w-full h-screen font-bold text-cyan text-titleMedium">
-      <p>{slug} it&apos;s dynamic?</p>
-      <p>yes , but actually no</p>
-      <p>Name: {name}</p>
-      <p>Description: {description}</p>
+      <p>those are components:</p>
+      <CategoryContent content={content} />
     </div>
   );
 }
