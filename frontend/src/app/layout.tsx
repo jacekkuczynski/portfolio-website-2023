@@ -18,7 +18,6 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-black">
         <Navbar />
-        <BackgroundAnimDecor />
         {children}
       </body>
     </html>

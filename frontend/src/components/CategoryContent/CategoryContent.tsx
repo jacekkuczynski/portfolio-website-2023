@@ -46,7 +46,7 @@ const CategoryContent = ({ content }: { content: ContentT }) => {
     return component;
   });
 
-  return <div>{blocksComponents}</div>;
+  return <div className="w-full">{blocksComponents}</div>;
 };
 
 export default CategoryContent;
