@@ -7,9 +7,7 @@ const ContentWithPhotosBlock = (props: ContentWithPhotosBlockT) => {
     <div className="container flex flex-col gap-16">
       <div className="flex flex-col ">
         <div className="text-center">
-          <h3 className="font-bold text-whiteDimmed font-raleway text-titleSmall md:text-titleMedium lg:text-titleLarge md:tracking-[-0.06rem] lg:tracking-[-0.08rem] uppercase ">
-            {title}
-          </h3>
+          <h3 className="text-white title">{title}</h3>
           <h4 className="">{leading}</h4>
         </div>
         <div>{serialize(richTextContent)}</div>

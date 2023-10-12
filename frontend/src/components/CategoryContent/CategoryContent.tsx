@@ -7,11 +7,11 @@ import {
   ProjectBlockT,
   TitleBlockT,
 } from "@/types/types";
-import TitleBlock from "../Blocks/TitleBlock/TitleBlock";
-import BooksBlock from "../Blocks/BooksBlock/BooksBlock";
-import ProjectBlock from "../Blocks/ProjectBlock/ProjectBlock";
-import IconsBlock from "../Blocks/IconsBlock/IconsBlock";
-import ContentWithPhotosBlock from "../Blocks/ContentWithPhotosBlock/ContentWithPhotosBlock";
+import TitleBlock from "../_Blocks/TitleBlock/TitleBlock";
+import BooksBlock from "../_Blocks/BooksBlock/BooksBlock";
+import ProjectBlock from "../_Blocks/ProjectBlock/ProjectBlock";
+import IconsBlock from "../_Blocks/IconsBlock/IconsBlock";
+import ContentWithPhotosBlock from "../_Blocks/ContentWithPhotosBlock/ContentWithPhotosBlock";
 
 const CategoryContent = ({ content }: { content: ContentT }) => {
   const getBlocks = (block: BlockT, key: string) => {
