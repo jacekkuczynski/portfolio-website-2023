@@ -78,7 +78,7 @@ export type ContentWithPhotosBlockT = {
 
 export type IconsBlockT = {
   sectionTitle: string;
-  icons: { iconName: string; iconImage: ImageT; id: string }[];
+  icons: { iconName: string; iconImage: ImageT; id: string; link: string }[];
   id: string;
   blockType: BlockTypeT;
 };
