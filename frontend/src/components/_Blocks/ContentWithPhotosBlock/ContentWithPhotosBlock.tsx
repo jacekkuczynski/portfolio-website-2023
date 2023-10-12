@@ -6,7 +6,7 @@ const ContentWithPhotosBlock = (props: ContentWithPhotosBlockT) => {
   const { title, leading, richTextContent, photos } = props;
 
   return (
-    <div className="container flex flex-col gap-16 lg:flex-row">
+    <div className="flex flex-col w-full gap-16 lg:flex-row">
       <div className="flex flex-col gap-8 lg:flex-1">
         <div className="text-center lg:text-left">
           <h1 className="title">{title}</h1>

@@ -7,7 +7,12 @@ export default function NotFound() {
     <div className="flex flex-col items-center justify-center w-full h-screen gap-4">
       <h3 className="title text-cyan">404</h3>
       <Image src={notFound} alt={"not found gif"} />
-      <Link href="/">Return Home</Link>
+      <Link
+        href="/"
+        className="transition-colors ease-in-out text-cyanDark leading hover:text-cyanLight "
+      >
+        Return Home
+      </Link>
     </div>
   );
 }
