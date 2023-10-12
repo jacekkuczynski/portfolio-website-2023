@@ -91,6 +91,7 @@ export type BookT = {
   title: string;
   author: string;
   id: string;
+  index: number;
 };
 
 export type BlockTypeT =

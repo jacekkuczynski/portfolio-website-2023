@@ -2,10 +2,11 @@ import { BookT } from "@/types/types";
 import Image from "next/image";
 
 const Book = (props: BookT) => {
-  const { author, title, cover } = props;
+  const { author, title, cover, index } = props;
   return (
     <div className="flex w-full transition-colors ease-in-out rounded-lg lg:w-10/12 border-1 hover:border-grey2 bg-blackDimmed text-whiteDimmed border-grey1">
       <Image
+        priority={index < 3 ? true : false}
         src={cover.url}
         alt={cover.alt}
         width={cover.width}
