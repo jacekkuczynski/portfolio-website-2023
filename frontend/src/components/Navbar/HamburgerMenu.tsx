@@ -8,7 +8,7 @@ const HamburgerMenu = () => {
 
   const handleMenu = () => {};
   return (
-    <button onClick={handleMenu}>
+    <button onClick={handleMenu} className="flex items-center justify-center">
       <Menu strokeWidth={1.5} />
     </button>
   );

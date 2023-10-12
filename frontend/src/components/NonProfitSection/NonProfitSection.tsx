@@ -13,7 +13,7 @@ const NonProfitSection = () => {
             <h3 className="font-bold text-titleSmall md:text-titleMedium whitespace-nowrap">
               Non-profits
             </h3>
-            <p className="font-normal text-contentSmall md:text-contentMedium lg:text-contentLarge ">
+            <p className="content">
               Do you represent a{" "}
               <span className="font-bold text-cyan">non-profit</span>{" "}
               organization?{" "}

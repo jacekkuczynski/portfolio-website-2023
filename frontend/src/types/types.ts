@@ -71,7 +71,7 @@ export type ContentWithPhotosBlockT = {
   title: string;
   leading: string;
   richTextContent: RichTextContentT;
-  photos: ImageT[];
+  photos: { photo: ImageT }[];
   id: string;
   blockType: BlockTypeT;
 };
@@ -100,3 +100,16 @@ export type BlockTypeT =
   | "projectBlock"
   | "iconsBlock"
   | "contentWithPhotosBlock";
+
+export type GlobalT = {
+  titles: { title: string; id: string }[];
+  acceptingProjects: boolean;
+  location: number[];
+  globalType: string;
+  createdAt: Date;
+  updatedAt: Date;
+  city: string;
+  email: string;
+  heroDescription: string;
+  id: string;
+};

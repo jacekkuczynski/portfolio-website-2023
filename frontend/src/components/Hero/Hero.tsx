@@ -14,26 +14,22 @@ const description =
 
 const Hero = () => {
   return (
-    <div className="flex flex-col justify-center w-full col-start-2 gap-10 mt-16 mb-12 text-grey3">
+    <div className="flex flex-col justify-center w-full col-start-2 gap-10 mt-16 mb-12">
       <div className="flex flex-col gap-5">
-        <div className="flex flex-col font-bold uppercase font-raleway text-titleSmall sm:text-titleMedium lg:text-titleLarge">
+        <div className="flex flex-col title">
           <Greetings />
           <div className="flex flex-col items-start gap-0 leading-none sm:items-center sm:gap-2 w-fit sm:flex-row">
-            <div className="flex gap-2">
-              <span>I&apos;m</span>
-              <h1 className="tracking-tighter text-whiteDimmed whitespace-nowrap">
-                Jacek Kuczyński
-              </h1>
+            <div className="flex gap-2 title">
+              <span className="text-grey3">I&apos;m</span>
+              <h1 className=" whitespace-nowrap">Jacek Kuczyński</h1>
             </div>
             <PlaySoundIcon />
           </div>
         </div>
-        <h2 className="w-full md:w-[45rem] text-leadingSmall sm:text-leadingMedium lg:text-leadingLarge leading-[1.4] font-normal font-raleway">
-          {description}
-        </h2>
+        <h2 className="w-full md:w-[45rem] leading">{description}</h2>
       </div>
 
-      <div className="flex flex-col gap-4 cursor-pointer sm:flex-row font-roboto text-contentSmall sm:text-contentMedium lg:text-contentLarge">
+      <div className="flex flex-col gap-4 cursor-pointer sm:flex-row content">
         <BookCallDialogButton />
         <Button variant={"secondary"}>
           <Mail width={24} height={24} strokeWidth={1.5} />

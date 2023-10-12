@@ -11,15 +11,11 @@ const Book = (props: BookT) => {
         alt={cover.alt}
         width={cover.width}
         height={cover.height}
-        className="object-fill  h-auto w-[150px] md:w-auto  md:h-[300px] rounded-l-lg"
+        className="object-fill h-auto w-[150px] md:w-auto md:h-[300px] rounded-l-lg"
       />
       <div className="flex flex-col items-center justify-center w-full gap-1 px-4 text-center md: md:px-8 lg:px-16">
-        <h3 className="text-leadingSmall md:text-leadingMedium lg:text-leadingLarge leading-[1.4] font-raleway">
-          {author}
-        </h3>
-        <h4 className="text-contentSmall md:text-contentMedium lg:text-contentLarge leading-[1.6] font-roboto">
-          {title}
-        </h4>
+        <h3 className="leading text-whiteDimmed">{author}</h3>
+        <h4 className="content">{title}</h4>
       </div>
     </div>
   );

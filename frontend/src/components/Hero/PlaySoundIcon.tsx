@@ -37,7 +37,7 @@ const PlaySoundIcon = () => {
           <Volume1
             onClick={playSound}
             strokeWidth={1.5}
-            className="w-full h-full hover:text-whiteDimmed"
+            className="w-full h-full hover:text-whiteDimmed text-grey3"
           />
         </div>
       ) : (

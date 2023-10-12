@@ -44,3 +44,18 @@
   background: #29bc9b;
   border-radius: 4px;
 }
+
+@layer components {
+  .title {
+    @apply font-bold leading-none uppercase font-raleway text-whiteDimmed text-titleSmall md:text-titleMedium lg:text-titleLarge
+    md:tracking-[-0.06rem] lg:tracking-[0.08rem];
+  }
+
+  .leading {
+    @apply text-leadingSmall md:text-leadingMedium lg:text-leadingLarge leading-[1.4] font-normal font-raleway text-grey3;
+  }
+
+  .content {
+    @apply text-contentSmall md:text-contentMedium lg:text-contentLarge font-roboto leading-[1.6] text-grey4;
+  }
+}

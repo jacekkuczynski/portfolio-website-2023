@@ -2,6 +2,7 @@ import { GlobalConfig } from "payload/types";
 
 const Variables: GlobalConfig = {
   slug: "variables",
+  access: { read: () => true },
   fields: [
     { type: "text", name: "heroDescription" },
     {
