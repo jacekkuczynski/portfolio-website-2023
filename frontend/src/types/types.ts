@@ -28,6 +28,7 @@ export type CategoryT = {
   description: string;
   ImageT: ImageT;
   content: ContentT;
+  order: number;
 };
 
 export type ContentT = BlockT[];

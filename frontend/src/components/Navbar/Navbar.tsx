@@ -1,4 +1,8 @@
-import { getGlobalVariables, getWeatherInfo } from "@/fetchers/fetchers";
+import {
+  getAllCategoriesData,
+  getGlobalVariables,
+  getWeatherInfo,
+} from "@/fetchers/fetchers";
 import Logo from "../Logo/Logo";
 import ScrollProgress from "./ScrollProgress";
 import { CheckCircle2, Menu, XCircle } from "lucide-react";
@@ -6,7 +10,15 @@ import WeatherIcon from "./WeatherIcon";
 import HamburgerMenu from "./HamburgerMenu";
 
 const Navbar = async () => {
-  const { city, acceptingProjects, location } = await getGlobalVariables();
+  const links = await getAllCategoriesData().then((res) => {
+    res.sort((a, b) => a.order - b.order);
+    return res.map((category) => ({
+      name: category.name,
+      link: category.slug,
+    }));
+  });
+  const { city, acceptingProjects, location, email } =
+    await getGlobalVariables();
   const { weathercode, temperature, is_day } = await getWeatherInfo(location);
 
   const date = new Date();
@@ -34,14 +46,14 @@ const Navbar = async () => {
     <nav className="sticky top-0 z-50 w-full bg-blackDimmed text-whiteDimmed border-b-1 border-grey1">
       <div className="container flex items-center justify-between sm:h-20 h-[50px] w-full">
         <Logo />
-        <div className="flex items-center content-center gap-10 uppercase text-contentSmall">
+        <div className="flex items-center content-center gap-10 text-contentSmall">
           <div className="gap-1 md:gap-2.5 font-raleway items-center hidden lg:flex">
             <WeatherIcon code={weathercode} isDay={is_day} />
             <span>
               {temperature}ºC / {city} / {currentTime}
             </span>
           </div>
-          <div className="gap-1 sm:gap-2.5 items-center hidden md:flex">
+          <div className="gap-1 sm:gap-2.5 items-center hidden md:flex uppercase">
             {acceptingProjects ? (
               <CheckCircle2
                 strokeWidth={1.5}
@@ -62,7 +74,7 @@ const Navbar = async () => {
             </span>
           </div>
           <div className="w-4 cursor-pointer">
-            <HamburgerMenu />
+            <HamburgerMenu links={links} email={email} />
           </div>
         </div>
       </div>

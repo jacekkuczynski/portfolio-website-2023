@@ -8,7 +8,9 @@ const Greetings = dynamic(() => import("../Greetings/Greetings"), {
   loading: () => <p>hello</p>,
 });
 
-const BookCallDialogButton = dynamic(() => import("./BookCallDialogButton"));
+const BookCallDialogButton = dynamic(
+  () => import("../BookCallDialogButton/BookCallDialogButton")
+);
 
 const Hero = async () => {
   const { email, heroDescription } = await getGlobalVariables();
