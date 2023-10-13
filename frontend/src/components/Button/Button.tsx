@@ -15,7 +15,7 @@ const Button = ({
 
   return (
     <button
-      className={`flex items-center justify-center font-bold gap-[0.625rem] sm:gap-5 transition-colors ease-in-out px-buttonXSmall md:px-buttonXMedium lg:px-buttonXLarge py-buttonYSmall md:py-buttonYMedium lg:py-buttonYLarge text-contentSmall md:text-contentMedium lg:text-contentLarge ${variants[variant]}`}
+      className={`flex items-center w-full sm:w-fit justify-center font-bold gap-[0.625rem] sm:gap-5 transition-colors ease-in-out px-buttonXSmall md:px-buttonXMedium lg:px-buttonXLarge py-buttonYSmall md:py-buttonYMedium lg:py-buttonYLarge text-contentSmall md:text-contentMedium lg:text-contentLarge ${variants[variant]}`}
     >
       {children}
     </button>

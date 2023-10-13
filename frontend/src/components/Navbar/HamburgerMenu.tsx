@@ -28,7 +28,7 @@ const HamburgerMenu = ({
             initial="initial"
             animate="animate"
             exit="exit"
-            className="fixed top-0 right-0 z-50 w-full h-screen p-8 origin-right bg-black cursor-default text-whiteDimmed"
+            className="fixed top-0 right-0 z-50 w-full h-screen p-8 origin-right bg-black cursor-default lg:w-1/2 text-whiteDimmed"
           >
             <button
               className="absolute cursor-pointer top-2 right-2"

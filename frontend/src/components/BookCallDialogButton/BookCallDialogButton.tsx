@@ -22,7 +22,7 @@ const BookCallDialogButton = () => {
   return (
     <Dialog.Root>
       <Dialog.Trigger>
-        <span className="flex items-center justify-center gap-[0.625rem] sm:gap-5 transition-colors ease-in-out px-buttonXSmall md:px-buttonXMedium lg:px-buttonXLarge py-buttonYSmall md:py-buttonYMedium lg:py-buttonYLarge text-contentSmall md:text-contentMedium lg:text-contentLarge bg-cyan hover:bg-cyanLight text-blackDimmed font-bold ">
+        <span className="flex items-center  whitespace-nowrap justify-center gap-[0.625rem] sm:gap-5 transition-colors ease-in-out px-buttonXSmall md:px-buttonXMedium lg:px-buttonXLarge py-buttonYSmall md:py-buttonYMedium lg:py-buttonYLarge text-contentSmall md:text-contentMedium lg:text-contentLarge bg-cyan hover:bg-cyanLight text-blackDimmed font-bold ">
           <CalendarPlus strokeWidth={1.5} width={24} height={24} />
           Book a call
         </span>

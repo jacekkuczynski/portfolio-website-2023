@@ -33,10 +33,10 @@ const Hero = async () => {
 
       <div className="flex flex-col gap-4 cursor-pointer sm:flex-row content">
         <BookCallDialogButton />
-        <a href={`mailto:${email}`}>
+        <a href={`mailto:${email}`} className="w-full">
           <Button variant={"secondary"}>
             <Mail width={24} height={24} strokeWidth={1.5} />
-            Mail me
+            Send me an email{" "}
           </Button>
         </a>
       </div>
