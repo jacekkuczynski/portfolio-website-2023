@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import PlaySoundIcon from "./PlaySoundIcon";
 import { Mail } from "lucide-react";
 import Button from "../Button/Button";
+import { getGlobalVariables } from "@/fetchers/fetchers";
 
 const Greetings = dynamic(() => import("../Greetings/Greetings"), {
   loading: () => <p>hello</p>,
@@ -9,10 +10,9 @@ const Greetings = dynamic(() => import("../Greetings/Greetings"), {
 
 const BookCallDialogButton = dynamic(() => import("./BookCallDialogButton"));
 
-const description =
-  "I'm a web developer from Poznań, Poland, with a strong focus on modern frontend technologies. I specialize in creating websites and apps that help companies and individuals establish a strong web presence.";
+const Hero = async () => {
+  const { email, heroDescription } = await getGlobalVariables();
 
-const Hero = () => {
   return (
     <div className="flex flex-col justify-center w-full col-start-2 gap-10 mt-16 mb-12">
       <div className="flex flex-col gap-5">
@@ -26,15 +26,17 @@ const Hero = () => {
             <PlaySoundIcon />
           </div>
         </div>
-        <h2 className="w-full md:w-[45rem] leading">{description}</h2>
+        <h2 className="w-full md:w-[45rem] leading">{heroDescription}</h2>
       </div>
 
       <div className="flex flex-col gap-4 cursor-pointer sm:flex-row content">
         <BookCallDialogButton />
-        <Button variant={"secondary"}>
-          <Mail width={24} height={24} strokeWidth={1.5} />
-          Contact
-        </Button>
+        <a href={`mailto:${email}`}>
+          <Button variant={"secondary"}>
+            <Mail width={24} height={24} strokeWidth={1.5} />
+            Mail me
+          </Button>
+        </a>
       </div>
     </div>
   );

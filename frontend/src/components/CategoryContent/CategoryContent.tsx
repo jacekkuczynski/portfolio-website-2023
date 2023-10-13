@@ -46,7 +46,11 @@ const CategoryContent = ({ content }: { content: ContentT }) => {
     return component;
   });
 
-  return <div className="w-full my-10">{blocksComponents}</div>;
+  return (
+    <div className="flex flex-col items-center justify-center w-full my-10">
+      {blocksComponents}
+    </div>
+  );
 };
 
 export default CategoryContent;

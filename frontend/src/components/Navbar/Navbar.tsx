@@ -1,12 +1,14 @@
-import { getWeatherInfo } from "@/fetchers/fetchers";
+import { getGlobalVariables, getWeatherInfo } from "@/fetchers/fetchers";
 import Logo from "../Logo/Logo";
 import ScrollProgress from "./ScrollProgress";
-import { CheckCircle2, Menu } from "lucide-react";
+import { CheckCircle2, Menu, XCircle } from "lucide-react";
 import WeatherIcon from "./WeatherIcon";
 import HamburgerMenu from "./HamburgerMenu";
 
 const Navbar = async () => {
-  const { weathercode, temperature, is_day, success } = await getWeatherInfo();
+  const { city, acceptingProjects, location } = await getGlobalVariables();
+  const { weathercode, temperature, is_day } = await getWeatherInfo(location);
+
   const date = new Date();
   const currentTime = date.toLocaleString("en-US", {
     hour: "numeric",
@@ -19,6 +21,15 @@ const Navbar = async () => {
     month: "long",
   });
 
+  const commonProps = {
+    strokeWidth: 1.5,
+    width: 24,
+    height: 24,
+    className: "text-blackDimmed fill-cyanDark",
+  };
+
+  const status = acceptingProjects ? "Accepting Projects" : "Currently Busy";
+
   return (
     <nav className="sticky top-0 z-50 w-full bg-blackDimmed text-whiteDimmed border-b-1 border-grey1">
       <div className="container flex items-center justify-between sm:h-20 h-[50px] w-full">
@@ -27,18 +38,27 @@ const Navbar = async () => {
           <div className="gap-1 md:gap-2.5 font-raleway items-center hidden lg:flex">
             <WeatherIcon code={weathercode} isDay={is_day} />
             <span>
-              {temperature}ºC / Poznań / {currentTime}
+              {temperature}ºC / {city} / {currentTime}
             </span>
           </div>
           <div className="gap-1 sm:gap-2.5 items-center hidden md:flex">
-            <CheckCircle2
-              strokeWidth={1.5}
-              width={24}
-              height={24}
-              className="text-blackDimmed fill-cyanDark"
-            />
-            <span className="cursor-pointer font-roboto hover:underline underline-offset-2">
-              Accepting Projects / {currentMonth}
+            {acceptingProjects ? (
+              <CheckCircle2
+                strokeWidth={1.5}
+                width={24}
+                height={24}
+                className="text-blackDimmed fill-cyanDark"
+              />
+            ) : (
+              <XCircle
+                strokeWidth={1.5}
+                width={24}
+                height={24}
+                className="text-blackDimmed fill-red"
+              />
+            )}
+            <span className="underline font-roboto underline-offset-2">
+              {status} / {currentMonth}
             </span>
           </div>
           <div className="w-4 cursor-pointer">

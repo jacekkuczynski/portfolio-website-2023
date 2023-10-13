@@ -6,7 +6,6 @@ export interface WeatherAPIRes {
     weathercode: number;
     is_day: number;
     time: string;
-    success: boolean;
   };
 }
 
@@ -84,7 +83,7 @@ export type IconsBlockT = {
 };
 
 // TODO extend RichTextContentT
-export type RichTextContentT = { children: []; type: string }[];
+export type RichTextContentT = any;
 
 export type BookT = {
   cover: ImageT;
@@ -104,7 +103,7 @@ export type BlockTypeT =
 export type GlobalT = {
   titles: { title: string; id: string }[];
   acceptingProjects: boolean;
-  location: number[];
+  location: [number, number];
   globalType: string;
   createdAt: Date;
   updatedAt: Date;

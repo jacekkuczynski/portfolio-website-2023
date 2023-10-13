@@ -6,7 +6,7 @@ const MarqueeComponent = async () => {
 
   return (
     <Marquee autoFill speed={35} className="w-20 h-full">
-      <p className="pr-2 overflow-y-hidden lowercase title">
+      <p className="pr-2 overflow-y-hidden leading-relaxed lowercase title">
         {marqueeContent.map((el) => (
           <span key={el.id}>{el.title} / </span>
         ))}

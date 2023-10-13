@@ -7,7 +7,7 @@ import { Text } from "slate";
 type Children = Leaf[];
 
 type Leaf = {
-  type: string;
+  type?: string;
   value?: {
     url: string;
     alt: string;

@@ -14,7 +14,7 @@ export default async function Home({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const { content } = await getCategoryData(slug);
   return (
-    <div className="container flex flex-col items-center justify-center w-full">
+    <div className="container flex flex-col items-center justify-center w-full min-h-screen">
       <CategoryContent content={content} />
     </div>
   );

@@ -21,9 +21,9 @@ const IconsBlock = (props: IconsBlockT) => {
                   alt={image.alt}
                   height={image.height}
                   width={image.width}
-                  className={`${
-                    index % 2 == 1 ? "hover:rotate-1" : "hover:-rotate-1"
-                  } object-contain bg-grey1 w-[150px] h-[150px] md:w-[180px] md:h-[180px] rounded-[32px] hover:border-grey2 transition-all hover:rotate-1 hover:scale-105 ease-in-out border-1 border-grey1 hover:-translate-y-1`}
+                  className={`hover:${
+                    index % 2 === 1 ? "rotate-1" : "-rotate-1"
+                  } object-contain bg-grey1 w-[150px] h-[150px] md:w-[180px] md:h-[180px] rounded-[32px] hover:border-grey2 transition-all hover:scale-105 ease-in-out border-1 border-grey1 hover:-translate-y-1`}
                 />
               </Link>
 
