@@ -7,7 +7,9 @@ import Logo from "../Logo/Logo";
 import ScrollProgress from "./ScrollProgress";
 import { CheckCircle2, Menu, XCircle } from "lucide-react";
 import WeatherIcon from "./WeatherIcon";
-import HamburgerMenu from "./HamburgerMenu";
+import dynamic from "next/dynamic";
+
+const HamburgerMenu = dynamic(() => import("./HamburgerMenu"));
 
 const Navbar = async () => {
   const links = await getAllCategoriesData().then((res) => {

@@ -71,13 +71,16 @@ const HamburgerMenu = ({
                   );
                 })}
               </div>
-              <div className="flex flex-col gap-4 md:gap-8 ">
+              <motion.div
+                variants={linkVariants}
+                className="flex flex-col gap-4 md:gap-8 "
+              >
                 <div className="flex flex-col gap-2 content text-whiteDimmed md:gap-4">
                   <p>{email}</p>
                   <p>designed & developed: Jacek Kuczyński</p>
                 </div>
                 <BookCallDialogButton />
-              </div>
+              </motion.div>
             </motion.div>
           </motion.div>
         )}
