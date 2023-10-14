@@ -81,7 +81,10 @@ const BookCallDialogButton = () => {
                 I will contact you at {selected?.toDateString()}
               </span>
               <Dialog.Close asChild>
-                <button className="inline-flex items-center justify-center font-bold bg-cyan hover:bg-cyanLight px-buttonXSmall py-buttonYSmall font-roboto text-blackDimmed">
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center font-bold bg-cyan hover:bg-cyanLight px-buttonXSmall py-buttonYSmall font-roboto text-blackDimmed"
+                >
                   Confirm
                 </button>
               </Dialog.Close>
@@ -89,6 +92,7 @@ const BookCallDialogButton = () => {
           </div>
           <Dialog.Close asChild>
             <button
+              type="button"
               className="absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full text-whiteDimmed"
               aria-label="Close"
             >

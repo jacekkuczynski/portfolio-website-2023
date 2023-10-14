@@ -18,7 +18,12 @@ const HamburgerMenu = ({
 
   return (
     <>
-      <button onClick={handleMenu} className="flex items-center justify-center">
+      <button
+        type="button"
+        onClick={handleMenu}
+        aria-label="menu"
+        className="flex items-center justify-center"
+      >
         <Menu strokeWidth={1.5} />
       </button>
       <AnimatePresence>
@@ -31,6 +36,7 @@ const HamburgerMenu = ({
             className="fixed top-0 right-0 z-50 w-full h-screen p-8 origin-right bg-black cursor-default lg:w-1/2 text-whiteDimmed"
           >
             <button
+              type="button"
               className="absolute cursor-pointer top-2 right-2"
               onClick={handleMenu}
             >

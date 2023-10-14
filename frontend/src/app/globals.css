@@ -6,24 +6,28 @@
   font-family: "Inter";
   src: url("/fonts/inter.ttf") format(".ttf");
   font-weight: 500 700;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Raleway";
   src: url("/fonts/raleway.ttf") format(".ttf");
   font-weight: 400 700;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Roboto";
   src: url("/fonts/roboto400.ttf") format(".ttf");
   font-weight: 400;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Roboto";
   src: url("/fonts/roboto700.ttf") format(".ttf");
   font-weight: 700;
+  font-display: swap;
 }
 
 ::selection {
