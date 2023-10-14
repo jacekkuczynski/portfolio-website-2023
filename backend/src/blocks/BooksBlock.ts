@@ -6,7 +6,7 @@ const BooksBlock: Block = {
   fields: [
     {
       type: "array",
-      name: "book",
+      name: "books",
       fields: [
         { type: "upload", name: "cover", relationTo: "media" },
         { type: "text", name: "title" },

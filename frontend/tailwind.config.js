@@ -19,6 +19,9 @@ module.exports = {
       lg: "1440px",
     },
     extend: {
+      animation: {
+        "spin-slow": "spin 3s linear infinite",
+      },
       borderRadius: { card: "2rem" },
       height: { almostFull: "99vh" },
       container: {
@@ -45,6 +48,7 @@ module.exports = {
         cyanLight: "#79ffe1",
         cyan: "#50E3C2",
         cyanDark: "#29BC9B",
+        red: "#e60000",
       },
       borderWidth: { 1: "1px" },
       lineHeight: { normal: "160%" },

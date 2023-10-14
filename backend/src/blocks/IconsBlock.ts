@@ -11,6 +11,7 @@ const IconsBlock: Block = {
       fields: [
         { type: "text", name: "iconName" },
         { type: "upload", name: "iconImage", relationTo: "media" },
+        { type: "text", name: "link" },
       ],
     },
   ],

@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
 import BackgroundAnimDecor from "@/components/BackgroundAnimDecor/BackgroundAnimDecor";
+import Footer from "@/components/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "Jacek Kuczynski | software developer",
@@ -18,8 +19,8 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-black">
         <Navbar />
-        <BackgroundAnimDecor />
         {children}
+        <Footer />
       </body>
     </html>
   );

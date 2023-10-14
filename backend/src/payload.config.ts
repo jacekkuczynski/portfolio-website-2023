@@ -4,22 +4,40 @@ import Users from "./collections/Users";
 import { payloadCloud } from "@payloadcms/plugin-cloud";
 import Media from "./collections/Media";
 import Categories from "./collections/Categories";
-// import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import Variables from "./globals/Variables";
+import CallFormSubmissions from "./collections/CallFormSubmisions";
 
 export default buildConfig({
   admin: {
     user: Users.slug,
     bundler: webpackBundler(), // bundler-config
   },
-  editor: slateEditor({}),
-  db: mongooseAdapter({
-    url: process.env.DATABASE_URI,
+
+  editor: slateEditor({
+    admin: {
+      elements: [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "blockquote",
+        "ul",
+        "ol",
+        "link",
+      ],
+      leaves: ["bold", "code", "italic", "underline", "strikethrough"],
+    },
   }),
-  collections: [Categories, Media, Users],
+  db: mongooseAdapter({
+    url: process.env.MONGO_URL,
+  }),
+  serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
+  collections: [Categories, CallFormSubmissions, Media, Users],
   globals: [Variables],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),

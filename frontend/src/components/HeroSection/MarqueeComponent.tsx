@@ -1,20 +1,14 @@
+import { getGlobalVariables } from "@/fetchers/fetchers";
 import Marquee from "react-fast-marquee";
 
-const marqueeContent = [
-  "frontend developer",
-  "web developer",
-  "fullstack web developer",
-  "frontend engineer",
-  "creative web developer",
-  "html programmer",
-];
+const MarqueeComponent = async () => {
+  const marqueeContent = await getGlobalVariables().then((res) => res.titles);
 
-const MarqueeComponent = () => {
   return (
     <Marquee autoFill speed={35} className="w-20 h-full">
-      <p className="pr-2 overflow-y-hidden font-bold leading-loose text-whiteDimmed font-raleway text-titleSmall md:text-titleMedium lg:text-titleLarge">
+      <p className="pr-2 overflow-y-hidden leading-relaxed lowercase title">
         {marqueeContent.map((el) => (
-          <span key={el}>{el} / </span>
+          <span key={el.id}>{el.title} / </span>
         ))}
       </p>
     </Marquee>

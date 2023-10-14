@@ -16,6 +16,8 @@ const Categories: CollectionConfig = {
       type: "row",
       fields: [
         { type: "text", name: "name" },
+        { type: "text", name: "slug", unique: true },
+        { type: "number", name: "order" },
         { type: "text", name: "description" },
       ],
     },
