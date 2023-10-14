@@ -8,6 +8,7 @@ import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import Variables from "./globals/Variables";
+import CallFormSubmissions from "./collections/CallFormSubmisions";
 
 export default buildConfig({
   admin: {
@@ -36,7 +37,7 @@ export default buildConfig({
     url: process.env.MONGO_URL,
   }),
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
-  collections: [Categories, Media, Users],
+  collections: [Categories, CallFormSubmissions, Media, Users],
   globals: [Variables],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),

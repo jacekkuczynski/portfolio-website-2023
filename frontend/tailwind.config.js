@@ -19,6 +19,9 @@ module.exports = {
       lg: "1440px",
     },
     extend: {
+      animation: {
+        "spin-slow": "spin 3s linear infinite",
+      },
       borderRadius: { card: "2rem" },
       height: { almostFull: "99vh" },
       container: {

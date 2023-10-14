@@ -1,11 +1,12 @@
 "use client";
 
-import { CalendarPlus, X } from "lucide-react";
+import { CalendarPlus, Hourglass, X } from "lucide-react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Roboto_Mono } from "next/font/google";
 import "react-day-picker/dist/style.css";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { DayPicker } from "react-day-picker";
+import axios from "axios";
 
 const robotoMono = Roboto_Mono({
   subsets: ["latin"],
@@ -13,15 +14,38 @@ const robotoMono = Roboto_Mono({
 });
 
 const BookCallDialogButton = () => {
+  const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [selected, setSelected] = useState<Date | undefined>(new Date());
-  const [contactInfo, setContactInfo] = useState("");
+  const [formData, setFormData] = useState({
+    contactInfo: "",
+    message: "",
+    contactDate: new Date(),
+  });
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
-    setContactInfo(e.target.value);
+  const handleContactInfoChange = (e: ChangeEvent<HTMLInputElement>) =>
+    setFormData({ ...formData, contactInfo: e.target.value });
+
+  const handleMessageChange = (e: ChangeEvent<HTMLTextAreaElement>) =>
+    setFormData({ ...formData, message: e.target.value });
+
+  useEffect(() => {
+    if (selected instanceof Date)
+      setFormData({ ...formData, contactDate: selected });
+  }, [selected]);
+
+  const handleSubmit = async () => {
+    console.log("handleSubmit fired");
+    setLoading(true);
+    await axios.post("/api/form", formData);
+    setLoading(false);
+    setOpen(false);
+    console.log("posted");
+  };
 
   return (
-    <Dialog.Root>
-      <Dialog.Trigger>
+    <Dialog.Root open={open} onOpenChange={() => setOpen(!open)}>
+      <Dialog.Trigger onClick={() => setOpen(true)}>
         <span className="flex items-center  whitespace-nowrap justify-center gap-[0.625rem] sm:gap-5 transition-colors ease-in-out px-buttonXSmall md:px-buttonXMedium lg:px-buttonXLarge py-buttonYSmall md:py-buttonYMedium lg:py-buttonYLarge text-contentSmall md:text-contentMedium lg:text-contentLarge bg-cyan hover:bg-cyanLight text-blackDimmed font-bold ">
           <CalendarPlus strokeWidth={1.5} width={24} height={24} />
           Book a call
@@ -45,7 +69,7 @@ const BookCallDialogButton = () => {
                 phone/email
               </label>
               <input
-                onChange={handleChange}
+                onChange={handleContactInfoChange}
                 className=" inline-flex h-5 p-4 w-full flex-1 items-center justify-center text-contentSmall leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px] text-blackDimmed"
                 id="contactInfo"
               />
@@ -58,7 +82,7 @@ const BookCallDialogButton = () => {
                 message
               </label>
               <textarea
-                // onChange={handleChange}
+                onChange={handleMessageChange}
                 className=" inline-flex h-10 p-4 w-full flex-1 items-center justify-center text-contentSmall leading-none shadow-[0_0_0_1px] outline-none focus:shadow-[0_0_0_2px] text-blackDimmed"
                 id="message"
               />
@@ -80,14 +104,25 @@ const BookCallDialogButton = () => {
               >
                 I will contact you at {selected?.toDateString()}
               </span>
-              <Dialog.Close asChild>
-                <button
-                  type="button"
-                  className="inline-flex items-center justify-center font-bold bg-cyan hover:bg-cyanLight px-buttonXSmall py-buttonYSmall font-roboto text-blackDimmed"
-                >
-                  Confirm
-                </button>
-              </Dialog.Close>
+              <button
+                onClick={handleSubmit}
+                type="button"
+                className="inline-flex items-center justify-center font-bold bg-cyan hover:bg-cyanLight px-buttonXSmall py-buttonYSmall font-roboto text-blackDimmed"
+              >
+                {!loading ? (
+                  "Confirm"
+                ) : (
+                  <div className="flex items-center gap-2">
+                    Loading
+                    <Hourglass
+                      strokeWidth={1.5}
+                      width={16}
+                      height={16}
+                      className="animate-spin "
+                    />
+                  </div>
+                )}
+              </button>
             </div>
           </div>
           <Dialog.Close asChild>
