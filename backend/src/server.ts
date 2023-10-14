@@ -43,6 +43,7 @@ const start = async () => {
   });
 
   app.use(limiter);
+  app.set("trust proxy", 1);
 
   app.listen(PORT);
 };
