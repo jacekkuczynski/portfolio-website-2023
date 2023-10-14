@@ -8,7 +8,13 @@ const Media: CollectionConfig = {
     staticDir: path.resolve(__dirname, "../../media"),
     adminThumbnail: "thumbnail",
     staticURL: "/media",
-    mimeTypes: ["image/png", "image/jpeg", "image/svg+xml", "image/webp"],
+    mimeTypes: [
+      "image/png",
+      "image/jpeg",
+      "image/gif",
+      "image/svg+xml",
+      "image/webp",
+    ],
     formatOptions: { format: "webp", options: { quality: 75 } },
     resizeOptions: {
       withoutEnlargement: true,

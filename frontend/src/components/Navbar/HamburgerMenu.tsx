@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import BookCallDialogButton from "../BookCallDialogButton/BookCallDialogButton";
 
 const HamburgerMenu = ({
@@ -15,6 +15,19 @@ const HamburgerMenu = ({
 }) => {
   const [menu, setMenu] = useState(false);
   const handleMenu = () => setMenu(!menu);
+
+  const menuRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside, true);
+  }, []);
+
+  const handleClickOutside = (e: any) => {
+    if (menuRef.current && menuRef.current.contains(e.target)) {
+      return;
+    }
+    setMenu(false);
+  };
 
   return (
     <>
@@ -29,11 +42,12 @@ const HamburgerMenu = ({
       <AnimatePresence>
         {menu && (
           <motion.div
+            ref={menuRef}
             variants={menuVariants}
             initial="initial"
             animate="animate"
             exit="exit"
-            className="fixed top-0 right-0 z-50 w-full h-screen p-8 origin-right bg-black cursor-default lg:w-1/2 text-whiteDimmed"
+            className="fixed top-0 right-0 z-50 w-full h-screen p-8 origin-right bg-black cursor-default md:w-2/3 lg:w-1/2 text-whiteDimmed"
           >
             <button
               type="button"
@@ -54,7 +68,7 @@ const HamburgerMenu = ({
                 <motion.div
                   variants={linkVariants}
                   onClick={handleMenu}
-                  className="transition-colors ease-in-out title hover:text-cyanDark"
+                  className="transition-colors ease-in-out title md:text-titleMedium hover:text-cyanDark"
                 >
                   <Link href="/">start</Link>
                 </motion.div>
@@ -64,7 +78,7 @@ const HamburgerMenu = ({
                       key={link.link}
                       variants={linkVariants}
                       onClick={handleMenu}
-                      className="transition-colors ease-in-out title hover:text-cyanDark"
+                      className="transition-colors ease-in-out title md:text-titleMedium hover:text-cyanDark"
                     >
                       <Link href={link.link}>{link.name}</Link>
                     </motion.div>
