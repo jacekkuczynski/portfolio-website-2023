@@ -20,6 +20,9 @@ const HamburgerMenu = ({
 
   useEffect(() => {
     document.addEventListener("click", handleClickOutside, true);
+
+    return () =>
+      document.removeEventListener("click", handleClickOutside, true);
   }, []);
 
   const handleClickOutside = (e: any) => {
