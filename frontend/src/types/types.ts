@@ -26,7 +26,7 @@ export type CategoryT = {
   name: string;
   slug: string;
   description: string;
-  ImageT: ImageT;
+  image: ImageT;
   content: ContentT;
   order: number;
 };

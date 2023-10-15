@@ -1,0 +1,10 @@
+	// TODO
+	- validate form
+	- rewrite fetchers to route handlers
+	- toaster using radix ui
+	- expand richtextcontent serializer && types
+	- expand book component (image?)
+	- expand content photos component (image?)
+	- deal with above the fold images - priority
+	- light mode
+	
