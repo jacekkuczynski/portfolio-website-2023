@@ -1,6 +1,7 @@
 import express from "express";
 import rateLimit from "express-rate-limit";
 import payload from "payload";
+import morgan from "morgan";
 
 require("dotenv").config();
 const app = express();
@@ -43,6 +44,8 @@ const start = async () => {
   });
 
   app.use(limiter);
+
+  app.use(morgan("tiny"));
   app.set("trust proxy", 1);
 
   app.listen(PORT);

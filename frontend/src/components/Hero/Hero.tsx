@@ -18,7 +18,7 @@ const Hero = async () => {
   return (
     <div className="flex flex-col justify-center w-full col-start-2 gap-10 mt-16 mb-12">
       <div className="flex flex-col gap-5">
-        <div className="flex flex-col title sm:text-titleMedium">
+        <div className="flex flex-col title sm:text-titleMedium lg:text-titleLarge">
           <Greetings />
           <div className="flex flex-col items-start gap-0 leading-none sm:items-center sm:gap-2 w-fit sm:flex-row">
             <div className="flex gap-2">
