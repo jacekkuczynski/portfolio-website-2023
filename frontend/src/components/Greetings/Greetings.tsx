@@ -39,7 +39,7 @@ const Greetings = () => {
   });
 
   return (
-    <div className="flex items-center justify-start leading-none text-left w-fit title sm:text-titleMedium text-grey3">
+    <div className="flex items-center justify-start leading-none text-left w-fit title sm:text-titleMedium lg:text-titleLarge text-grey3">
       {visible == greetings.length && (
         <motion.div
           initial={{ opacity: 0 }}

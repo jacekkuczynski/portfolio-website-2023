@@ -10,5 +10,6 @@ export async function POST(req: Request) {
     return NextResponse.json("ok");
   } catch (e) {
     console.log(e, "form route handler error");
+    return NextResponse.json("error");
   }
 }
