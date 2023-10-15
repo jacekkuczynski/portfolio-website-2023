@@ -10,16 +10,7 @@ const LearnMoreSection = async () => {
           {categoriesData
             .sort((a, b) => a.order - b.order)
             .map((category) => {
-              const { id, slug, name, description, image } = category;
-              return (
-                <CategoryCard
-                  key={id}
-                  slug={slug}
-                  name={name}
-                  description={description}
-                  image={image}
-                />
-              );
+              return <CategoryCard key={category.id} {...category} />;
             })}
         </div>
       </div>

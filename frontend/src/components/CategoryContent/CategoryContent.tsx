@@ -47,7 +47,7 @@ const CategoryContent = ({ content }: { content: ContentT }) => {
   });
 
   return (
-    <div className="flex flex-col items-center justify-center w-full my-10">
+    <div className="flex flex-col items-center justify-center w-full gap-8 my-10">
       {blocksComponents}
     </div>
   );

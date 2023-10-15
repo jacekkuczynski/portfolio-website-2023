@@ -14,9 +14,10 @@ const CategoryCard = ({
   description: string;
   image: ImageT;
 }) => {
+  // console.log(slug, name, description, image, image.url);
   return (
     <AppearingAnim>
-      <Link href={`/${slug}`}>
+      <Link href={slug}>
         <div className="flex flex-col w-full sm:w-[500px] h-[400px] md:h-[500px] border-2 border-grey1 transition-colors ease-in-out hover:border-grey2 bg-blackDimmed rounded-card overflow-hidden cursor-pointer group">
           <div className="flex flex-col items-center justify-center w-full h-2/5 text-cyanDark font-raleway">
             <h3 className="font-bold leading-none uppercase transition-colors ease-in-out cursor-pointer text-titleSmall md:text-titleMedium group-hover:text-cyanLight">
@@ -28,13 +29,15 @@ const CategoryCard = ({
           </div>
 
           <div className="relative w-full transition-all ease-in-out h-3/5 group-hover:scale-110 group-hover:rotate-3 group-active:scale-90">
-            <Image
-              src={image.url}
-              height={image.height}
-              width={image.width}
-              alt={image.alt}
-              className="object-contain w-full h-auto rounded-b-card"
-            />
+            {image?.url && (
+              <Image
+                src={image.url}
+                height={image.height}
+                width={image.width}
+                alt={image.alt}
+                className="object-contain w-full h-auto rounded-b-card"
+              />
+            )}
           </div>
         </div>
       </Link>

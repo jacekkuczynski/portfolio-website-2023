@@ -19,7 +19,7 @@ const ProjectBlock = (props: ProjectBlockT) => {
 
   return (
     <AppearingAnim>
-      <div className="flex flex-col items-center w-full gap-6 p-8 rounded-lg bg-blackDimmed border-1 border-grey1 lg:p-16 lg:w-10/12">
+      <div className="flex flex-col items-center w-full gap-8 p-8 rounded-lg md:gap-10 bg-blackDimmed border-1 border-grey1 lg:p-16 lg:w-10/12">
         {image && (
           <Image
             src={image.url}
@@ -43,7 +43,7 @@ const ProjectBlock = (props: ProjectBlockT) => {
             </div>
           ))}
         </div>
-        <ul className="flex flex-wrap items-center justify-center w-full gap-4">
+        <ul className="flex flex-wrap items-center justify-start w-full gap-4">
           {features.map((feature) => (
             <li
               key={feature.id}
@@ -54,10 +54,10 @@ const ProjectBlock = (props: ProjectBlockT) => {
             </li>
           ))}
         </ul>
-        <div className="flex flex-col items-center justify-center content text-grey3">
+        <div className="flex flex-col items-center justify-center text-left children:w-full content text-whiteDimmed">
           {serialize(longDescription)}
         </div>
-        <div className="flex gap-8 content text-whiteDimmed ">
+        <div className="flex gap-8 content text-cyanDark ">
           <div className="flex items-center justify-center gap-2 ">
             <Globe strokeWidth={1.5} size={24} />
             <Link
@@ -72,7 +72,7 @@ const ProjectBlock = (props: ProjectBlockT) => {
           <div className="flex items-center justify-center gap-2 ">
             <Github strokeWidth={1.5} size={24} />
             <Link
-              href={websiteLink}
+              href={repoLink}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
