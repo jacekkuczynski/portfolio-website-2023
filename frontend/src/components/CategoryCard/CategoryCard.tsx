@@ -17,8 +17,8 @@ const CategoryCard = ({
   // console.log(slug, name, description, image, image.url);
   return (
     <AppearingAnim>
-      <Link href={slug}>
-        <div className="flex flex-col w-full sm:w-[500px] h-[400px] md:h-[500px] border-2 border-grey1 transition-colors ease-in-out hover:border-grey2 bg-blackDimmed rounded-card overflow-hidden cursor-pointer group">
+      <Link href={slug} className="w-full">
+        <div className="flex flex-col w-full  h-[400px] md:h-[500px] border-2 border-grey1 transition-colors ease-in-out hover:border-grey2 bg-blackDimmed rounded-card overflow-hidden cursor-pointer group">
           <div className="flex flex-col items-center justify-center w-full h-2/5 text-cyanDark font-raleway">
             <h3 className="font-bold leading-none uppercase transition-colors ease-in-out cursor-pointer text-titleSmall md:text-titleMedium group-hover:text-cyanLight">
               {name}

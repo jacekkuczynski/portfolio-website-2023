@@ -58,17 +58,19 @@ const ProjectBlock = (props: ProjectBlockT) => {
           {serialize(longDescription)}
         </div>
         <div className="flex gap-8 content text-cyanDark ">
-          <div className="flex items-center justify-center gap-2 ">
-            <Globe strokeWidth={1.5} size={24} />
-            <Link
-              href={websiteLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              website
-            </Link>
-          </div>
+          {websiteLink && (
+            <div className="flex items-center justify-center gap-2 ">
+              <Globe strokeWidth={1.5} size={24} />
+              <Link
+                href={websiteLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                website
+              </Link>
+            </div>
+          )}
           <div className="flex items-center justify-center gap-2 ">
             <Github strokeWidth={1.5} size={24} />
             <Link

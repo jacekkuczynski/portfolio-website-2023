@@ -9,9 +9,9 @@ const NonProfitSection = async () => {
       <div className="absolute top-0 w-full h-full ">
         <Dynamic3DLoader />
       </div>
-      <div className="container absolute -translate-x-1/2 -translate-y-1/2 w-fit top-1/2 left-1/2">
+      <div className="container absolute w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
         <AppearingAnim>
-          <div className="flex flex-col gap-2 p-4 text-center border-2 bg-blackDimmed md:p-6 text-whiteDimmed opacity-95 rounded-xl border-cyanDark">
+          <div className="flex flex-col w-full gap-2 p-4 text-center border-2 md:w-10/12 bg-blackDimmed md:p-6 text-whiteDimmed opacity-95 rounded-xl border-cyanDark">
             <h3 className="font-bold text-titleSmall md:text-titleMedium whitespace-nowrap">
               Non-profits
             </h3>
