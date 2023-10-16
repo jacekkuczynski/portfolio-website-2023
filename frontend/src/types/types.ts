@@ -62,7 +62,7 @@ export type ProjectBlockT = {
   features: { feature: string; id: string }[];
   longDescription: RichTextContentT[];
   repoLink: string;
-  websiteLink: string;
+  websiteLink?: string;
   id: string;
   blockType: BlockTypeT;
 };

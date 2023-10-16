@@ -15,7 +15,6 @@ const robotoMono = Roboto_Mono({
 });
 
 const BookCallDialogButton = () => {
-  const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [selected, setSelected] = useState<Date | undefined>(new Date());

@@ -21,10 +21,11 @@ export const getWeatherInfo = async ([longitude, latitude]: [
 };
 
 const serverUrl = process.env.SERVER_URL;
+const timeToRevalidate = 300;
 
 export const getAllCategoriesData = async () => {
   const url = `${serverUrl}/categories/`;
-  const res = await fetch(url);
+  const res = await fetch(url, { next: { revalidate: timeToRevalidate } });
   const data: CategoriesT = await res.json();
   return data.docs;
 };
@@ -43,14 +44,14 @@ export const getCategoryData = async (slugValue: string) => {
   );
 
   const url = `${serverUrl}/categories${stringifiedQuery}`;
-  const res = await fetch(url);
+  const res = await fetch(url, { next: { revalidate: timeToRevalidate } });
   const data: CategoriesT = await res.json();
   return data.docs[0];
 };
 
 export const getGlobalVariables = async () => {
   const url = `${serverUrl}/globals/variables`;
-  const res = await fetch(url);
+  const res = await fetch(url, { next: { revalidate: timeToRevalidate } });
   const data: GlobalT = await res.json();
   return data;
 };

@@ -10,9 +10,9 @@ const Footer = async () => {
 
   return (
     <footer className="w-full border-t-2 bg-blackDimmed border-cyan h-auto md:h-[150px] p-6">
-      <div className="container flex items-center justify-between h-full">
+      <div className="container flex items-start justify-between h-full sm:items-center">
         <div className="leading text-whiteDimmed">{email}</div>
-        <ul className="flex flex-col gap-4 content text-grey4 md:flex-row md:gap-5">
+        <ul className="grid grid-cols-2 gap-6 sm:flex content text-grey4 sm:flex-row sm:gap-5">
           <li className="transition-colors ease-in-out hover:text-whiteDimmed">
             <Link href={"/"}>start</Link>
           </li>

@@ -14,9 +14,9 @@ const HamburgerMenu = ({
   email: string;
 }) => {
   const [menu, setMenu] = useState(false);
-  const handleMenu = () => setMenu(!menu);
 
   const menuRef = useRef<HTMLDivElement | null>(null);
+  const modalRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     document.addEventListener("click", handleClickOutside, true);
@@ -24,6 +24,11 @@ const HamburgerMenu = ({
     return () =>
       document.removeEventListener("click", handleClickOutside, true);
   }, []);
+
+  const handleMenu = (e: any) => {
+    e.stopPropagation();
+    setMenu(!menu);
+  };
 
   const handleClickOutside = (e: any) => {
     if (menuRef.current && menuRef.current.contains(e.target)) {
@@ -96,7 +101,8 @@ const HamburgerMenu = ({
                   <p>{email}</p>
                   <p>designed & developed: Jacek Kuczyński</p>
                 </div>
-                <BookCallDialogButton />
+
+                {/* <BookCallDialogButton /> */}
               </motion.div>
             </motion.div>
           </motion.div>
