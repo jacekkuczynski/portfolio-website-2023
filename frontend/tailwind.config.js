@@ -52,6 +52,17 @@ module.exports = {
       },
       borderWidth: { 1: "1px" },
       lineHeight: { normal: "160%" },
+      // fontSize: {
+      //   titleLarge: "4rem",
+      //   titleMedium: "3rem",
+      //   titleSmall: "2rem",
+      //   leadingLarge: "1.6875rem",
+      //   leadingMedium: "1.26563rem",
+      //   leadingSmall: "0.84375rem",
+      //   contentLarge: "1.5rem",
+      //   contentMedium: "1.25rem",
+      //   contentSmall: "0.75rem",
+      // },
       fontSize: {
         titleLarge: "4rem",
         titleMedium: "3rem",

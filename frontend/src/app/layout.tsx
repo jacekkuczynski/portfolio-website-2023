@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
-import BackgroundAnimDecor from "@/components/BackgroundAnimDecor/BackgroundAnimDecor";
 import Footer from "@/components/Footer/Footer";
 
 export const metadata: Metadata = {
@@ -17,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-black">
+      <body className="bg-black ">
         <Navbar />
         {children}
         <Footer />
