@@ -4,7 +4,7 @@ import { CalendarPlus, Hourglass, MailCheck, X, XCircle } from "lucide-react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Roboto_Mono } from "next/font/google";
 import "react-day-picker/dist/style.css";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { DayPicker } from "react-day-picker";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
@@ -35,7 +35,8 @@ const BookCallDialogButton = () => {
       setFormData({ ...formData, contactDate: selected });
   }, [selected]);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     setLoading(true);
     await axios
       .post("/api/form", formData)
