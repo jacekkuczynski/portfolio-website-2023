@@ -5,7 +5,7 @@ const Media: CollectionConfig = {
   slug: "media",
   access: { read: () => true },
   upload: {
-    staticDir: path.resolve(__dirname, "../../media"),
+    staticDir: path.resolve(__dirname, process.env.RAILWAY_VOLUME_MOUNT_PATH),
     adminThumbnail: "thumbnail",
     staticURL: "/media",
     mimeTypes: [
