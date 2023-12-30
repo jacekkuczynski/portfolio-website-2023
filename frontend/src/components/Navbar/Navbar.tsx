@@ -1,26 +1,14 @@
-import {
-  getAllCategoriesData,
-  getGlobalVariables,
-  getWeatherInfo,
-} from "@/fetchers/fetchers";
+import { getWeatherInfo } from "@/fetchers/fetchers";
 import Logo from "../Logo/Logo";
 import ScrollProgress from "./ScrollProgress";
 import { CheckCircle2, Menu, XCircle } from "lucide-react";
 import WeatherIcon from "./WeatherIcon";
-import dynamic from "next/dynamic";
-
-const HamburgerMenu = dynamic(() => import("./HamburgerMenu"));
 
 const Navbar = async () => {
-  const links = await getAllCategoriesData().then((res) => {
-    res.sort((a, b) => a.order - b.order);
-    return res.map((category) => ({
-      name: category.name,
-      link: category.slug,
-    }));
-  });
-  const { city, acceptingProjects, location, email } =
-    await getGlobalVariables();
+  const city = "Poznań";
+  const acceptingProjects = true;
+  const location: [number, number] = [16.9299, 52.4069];
+
   const { weathercode, temperature, is_day } = await getWeatherInfo(location);
 
   const date = new Date();
@@ -75,9 +63,7 @@ const Navbar = async () => {
               {status} / {currentMonth}
             </span>
           </div>
-          <div className="w-4 cursor-pointer">
-            <HamburgerMenu links={links} email={email} />
-          </div>
+          {/* <div className="w-4 cursor-pointer"></div> */}
         </div>
       </div>
       <ScrollProgress />

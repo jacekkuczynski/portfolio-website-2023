@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@excalidraw/excalidraw": "^0.16.1",
     "@radix-ui/react-dialog": "^1.0.5",
     "@react-three/drei": "^9.88.2",
     "@react-three/fiber": "^8.14.5",
